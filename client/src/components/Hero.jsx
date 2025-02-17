@@ -2,6 +2,7 @@ import React from 'react';
 import CustomIcon from './ProjectIcon';
 import NextIcon from './NextIcon';
 
+
 function Hero() {
   return (
     <div className="flex items-end min-h-screen gap-3 px-8 sm:px-16 max-h-[90vh]">

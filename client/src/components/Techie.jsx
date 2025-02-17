@@ -29,7 +29,7 @@ function Techie() {
   ];
 
   return (
-    <div className="my-12">
+    <div className="my-12 ">
       <div className="relative z-20 text-white text-center">
         <div className="container mx-auto px-[15vw] ">
           <div className="flex items-center  mb-2">
@@ -147,4 +147,4 @@ function Techie() {
   );
 }
 
-export default Techie;
+export default Techie;  

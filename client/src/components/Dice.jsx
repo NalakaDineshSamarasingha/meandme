@@ -5,7 +5,6 @@ import './DiceAnimation.css'
 function Dice({icon1,icon2,icon3,icon4,icon5,icon6}) {
   return (
     <div>
-         
             <div className="skill-container">
                 <div className="stage-cube-cont">
                     <div className="cubespinner">
@@ -35,4 +34,4 @@ function Dice({icon1,icon2,icon3,icon4,icon5,icon6}) {
   )
 }
 
-export default Dice
+export default Dice;
