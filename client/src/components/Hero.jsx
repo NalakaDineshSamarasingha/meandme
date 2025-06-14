@@ -5,7 +5,7 @@ import NextIcon from './NextIcon';
 
 function Hero() {
   return (
-    <div className="flex items-end min-h-screen gap-3 px-8 sm:px-16 max-h-[90vh]">
+    <div className="flex relative items-end min-h-screen gap-3 px-8 sm:px-16 bottom-[14vh] sm:bottom-0  max-h-[90vh]">
       <div className="text-white mb-4 sm:mb-6">
         <div className="text-[#f2f2f280] mb-2 sm:mb-4 italic">
           <p>&lt;div&gt;</p>
