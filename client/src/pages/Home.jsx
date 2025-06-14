@@ -23,23 +23,7 @@ const fadeInUp = {
   }
 };
 
-const slideInLeft = {
-  hidden: { 
-    opacity: 0, 
-    x: -100,
-    rotate: -3
-  },
-  visible: { 
-    opacity: 1, 
-    x: 0,
-    rotate: 0,
-    transition: { 
-      duration: 0.8,
-      ease: [0.25, 0.25, 0.25, 0.75],
-      delay: 0.2
-    }
-  }
-};
+
 
 const slideInRight = {
   hidden: { 
@@ -70,24 +54,6 @@ const staggerContainer = {
   }
 };
 
-const scaleInBounce = {
-  hidden: { 
-    opacity: 0, 
-    scale: 0.6,
-    rotate: -10
-  },
-  visible: { 
-    opacity: 1, 
-    scale: 1,
-    rotate: 0,
-    transition: { 
-      type: "spring",
-      stiffness: 200,
-      damping: 20,
-      duration: 0.8
-    }
-  }
-};
 
 // Custom hook for scroll animations
 function useScrollAnimation(threshold = 0.1) {
@@ -123,20 +89,6 @@ function ParallaxWrapper({ children, speed = 0.5, className = "" }) {
 }
 
 // Enhanced animated components
-function AnimatedNavbar() {
-  const [ref, inView] = useScrollAnimation();
-  
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={slideInLeft}
-    >
-      <Navbar />
-    </motion.div>
-  );
-}
 
 function AnimatedHero() {
   const [ref, inView] = useScrollAnimation();

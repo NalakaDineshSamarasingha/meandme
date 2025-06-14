@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  ExternalLink, 
+
   Github, 
   Globe, 
-  Code, 
+
   Briefcase, 
   GraduationCap,
-  Star,
+
   Calendar,
   Users,
-  Zap,
-  Award,
+
   Target,
   ArrowRight,
   Eye
@@ -136,19 +135,19 @@ function ProjectSection() {
         {/* Overlay Links */}
         <div className="absolute inset-0 bg-gray-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
           {project.links.live && (
-            <a href={project.links.live} target='_blank' className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-white text-sm font-medium transition-colors duration-200">
+            <a href={project.links.live} target='_blank' rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-white text-sm font-medium transition-colors duration-200">
               <Globe className="w-4 h-4" />
               Live Demo
             </a>
           )}
           {project.links.demo && (
-            <a href={project.links.demo} target='_blank' className="flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 rounded-lg text-white text-sm font-medium transition-colors duration-200">
+            <a href={project.links.demo} target='_blank' rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 rounded-lg text-white text-sm font-medium transition-colors duration-200">
               <Eye className="w-4 h-4" />
               View Demo
             </a>
           )}
           {project.links.github && (
-            <a href={project.links.github} target='_blank' className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white text-sm font-medium transition-colors duration-200">
+            <a href={project.links.github} target='_blank' rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white text-sm font-medium transition-colors duration-200">
               <Github className="w-4 h-4" />
               Code
             </a>
