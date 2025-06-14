@@ -49,6 +49,7 @@ function Techie() {
       return () => clearTimeout(timer);
     }, [delay]);
 
+    
     return (
       <div 
         className={`relative overflow-hidden transform transition-all duration-1000 ${

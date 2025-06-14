@@ -61,54 +61,54 @@ function ProjectSection() {
   ];
 
   const skillProjects = [
-    {
-      id: 4,
-      title: "AI Chat Bot",
-      description: "Intelligent chatbot using natural language processing for customer support automation.",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
-      technologies: ["Python", "TensorFlow", "Flask", "OpenAI"],
-      category: "AI/ML",
-      status: "Completed",
-      skillLevel: "Advanced",
-      duration: "2 months",
-      highlights: ["NLP Integration", "Context Understanding", "Multi-language"],
-      links: {
-        demo: "#",
-        github: "#"
-      }
-    },
-    {
-      id: 5,
-      title: "Cryptocurrency Tracker",
-      description: "Real-time crypto price tracking with portfolio management and price alerts.",
-      image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&h=400&fit=crop",
-      technologies: ["React", "Chart.js", "WebSocket", "API"],
-      category: "Data Visualization",
-      status: "Completed",
-      skillLevel: "Intermediate",
-      duration: "3 weeks",
-      highlights: ["Real-time Data", "Interactive Charts", "Price Alerts"],
-      links: {
-        demo: "#",
-        github: "#"
-      }
-    },
-    {
-      id: 6,
-      title: "3D Portfolio Website",
-      description: "Interactive 3D portfolio with Three.js animations and smooth transitions.",
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop",
-      technologies: ["Three.js", "GSAP", "React", "WebGL"],
-      category: "3D Graphics",
-      status: "Completed",
-      skillLevel: "Advanced",
-      duration: "1 month",
-      highlights: ["3D Animations", "WebGL Shaders", "Interactive UI"],
-      links: {
-        demo: "#",
-        github: "#"
-      }
-    }
+    // {
+    //   id: 4,
+    //   title: "AI Chat Bot",
+    //   description: "Intelligent chatbot using natural language processing for customer support automation.",
+    //   image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
+    //   technologies: ["Python", "TensorFlow", "Flask", "OpenAI"],
+    //   category: "AI/ML",
+    //   status: "Completed",
+    //   skillLevel: "Advanced",
+    //   duration: "2 months",
+    //   highlights: ["NLP Integration", "Context Understanding", "Multi-language"],
+    //   links: {
+    //     demo: "#",
+    //     github: "#"
+    //   }
+    // },
+    // {
+    //   id: 5,
+    //   title: "Cryptocurrency Tracker",
+    //   description: "Real-time crypto price tracking with portfolio management and price alerts.",
+    //   image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&h=400&fit=crop",
+    //   technologies: ["React", "Chart.js", "WebSocket", "API"],
+    //   category: "Data Visualization",
+    //   status: "Completed",
+    //   skillLevel: "Intermediate",
+    //   duration: "3 weeks",
+    //   highlights: ["Real-time Data", "Interactive Charts", "Price Alerts"],
+    //   links: {
+    //     demo: "#",
+    //     github: "#"
+    //   }
+    // },
+    // {
+    //   id: 6,
+    //   title: "3D Portfolio Website",
+    //   description: "Interactive 3D portfolio with Three.js animations and smooth transitions.",
+    //   image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop",
+    //   technologies: ["Three.js", "GSAP", "React", "WebGL"],
+    //   category: "3D Graphics",
+    //   status: "Completed",
+    //   skillLevel: "Advanced",
+    //   duration: "1 month",
+    //   highlights: ["3D Animations", "WebGL Shaders", "Interactive UI"],
+    //   links: {
+    //     demo: "#",
+    //     github: "#"
+    //   }
+    // }
   ];
 
   const ProjectCard = ({ project, type }) => (
