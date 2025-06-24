@@ -27,7 +27,7 @@ function ProjectSection() {
     {
       id: 1,
       title: "CarPool",
-      description: "Ride sharing platform for organizations.",
+      description: "Ride sharing platform for organizations.Collab with WSO2.",
       image: "/assets/carpool.png",
       technologies: ["Flutter","NextJs", "Ballerina", "Firebase"],
       category: "Mobile App",
@@ -43,7 +43,7 @@ function ProjectSection() {
     {
       id: 2,
       title: "My Portfolio",
-      description: "Static website design by me for showcase my passion",
+      description: "Static website design by me for showcase my passion. Made with 50% love and 50% coffee.",
       image: "/assets/image.png",
       technologies: ["ReactJs"],
       category: "Web Application",
@@ -54,6 +54,22 @@ function ProjectSection() {
       links: {
         live: "https://nalaka.netlify.app/",
         github: "https://github.com/NalakaDineshSamarasingha/meandme#"
+      }
+    },
+    {
+      id: 3,
+      title: "Ballerina Firebase Module",
+      description: "Ballerina Module for accessing firebase firestore database.",
+      image: "/assets/3.jpg",
+      technologies: ["Ballerina"],
+      category: "Package",
+      status: "Live",
+      users: "",
+      duration: "1.0.0",
+      highlights: ["Ballerina Package"],
+      links: {
+        live: "https://central.ballerina.io/nalaka/firestore/1.0.0",
+        github: "https://github.com/NalakaDineshSamarasingha/nalaka-firestore"
       }
     },
     
