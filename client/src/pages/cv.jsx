@@ -12,7 +12,6 @@ import {
   Code,
   Briefcase,
   GraduationCap,
-  User,
   Info,
   X,
 } from "lucide-react";
@@ -120,7 +119,7 @@ const ProfessionalCV = () => {
             <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-white/20 flex items-center justify-center">
                 {/* <User size={64} className="text-white/80" /> */}
-                <img src="/assets/cv.png" />
+                <img src="/assets/cv.png" alt="me"/>
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h1 className="text-3xl md:text-4xl font-bold mb-2">
