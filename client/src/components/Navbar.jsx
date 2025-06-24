@@ -44,8 +44,10 @@ function Navbar() {
             <Arrow />
           </div>
           <div className="flex items-center py-2 px-4 hover:bg-slate-800 transition duration-300 rounded-full">
-            <p>Resume</p>
-            <Arrow />
+            <a href='/cv'>
+              <p>Resume</p>
+            </a>
+              <Arrow />
           </div>
           <div className="flex items-center py-2 px-4 hover:bg-slate-800 transition duration-300 rounded-full">
             <p>
