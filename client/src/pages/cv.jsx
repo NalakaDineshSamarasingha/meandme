@@ -84,17 +84,18 @@ const ProfessionalCV = () => {
 
   const getGradePoint = (grade) => {
     const gradePoints = {
-      A: 4.0,
+      "A+": 4.0,
+      "A": 4.0,
       "A-": 3.7,
       "B+": 3.3,
-      B: 3.0,
+      "B": 3.0,
       "B-": 2.7,
       "C+": 2.3,
-      C: 2.0,
+      "C": 2.0,
       "C-": 1.7,
       "D+": 1.3,
-      D: 1.0,
-      I: 0.0,
+      "D": 1.0,
+      "I": 0.0,
     };
     return gradePoints[grade] || 0.0;
   };
@@ -388,14 +389,13 @@ const ProfessionalCV = () => {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <h4 className="font-semibold text-gray-800 mb-2">
-                      E-Commerce Platform
+                      Carpool
                     </h4>
                     <p className="text-gray-600 text-sm mb-3">
-                      Full-stack e-commerce solution with React, Node.js, and
-                      Stripe integration
+                      Ride sharing mobile application for employees' in WSO2. 
                     </p>
                     <div className="flex flex-wrap gap-1">
-                      {["React", "Node.js", "MongoDB"].map((tech) => (
+                      {["Flutter", "Ballerina", "Google Map API","Firebase","Next"].map((tech) => (
                         <span
                           key={tech}
                           className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded"
@@ -405,7 +405,7 @@ const ProfessionalCV = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="bg-gray-50 p-4 rounded-lg">
+                  {/* <div className="bg-gray-50 p-4 rounded-lg">
                     <h4 className="font-semibold text-gray-800 mb-2">
                       Task Management App
                     </h4>
@@ -423,7 +423,7 @@ const ProfessionalCV = () => {
                         </span>
                       ))}
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -436,13 +436,19 @@ const ProfessionalCV = () => {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <span className="font-medium text-gray-800">
-                      AWS Certified Solutions Architect
+                      The Complete 2024 Web Development Bootcamp
                     </span>
                     <span className="text-sm text-gray-500">2023</span>
                   </div>
                   <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <span className="font-medium text-gray-800">
-                      Google Cloud Professional Developer
+                      Python for Beginners
+                    </span>
+                    <span className="text-sm text-gray-500">2022</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <span className="font-medium text-gray-800">
+                      Web Design for Beginners
                     </span>
                     <span className="text-sm text-gray-500">2022</span>
                   </div>
@@ -521,7 +527,7 @@ const ProfessionalCV = () => {
                                   <div className="flex items-center gap-3">
                                     <span className="text-sm text-gray-600">
                                       {getGradePoint(module.grade).toFixed(1)}{" "}
-                                      pts
+                                      GPA
                                     </span>
                                     <span
                                       className={`px-3 py-1 rounded-full text-sm font-medium ${
@@ -559,7 +565,8 @@ const ProfessionalCV = () => {
                             .reduce((acc, module) => acc + module.credits, 0)}
                         </span>
                         <span className="bg-blue-600 text-white px-4 py-2 rounded-full font-bold">
-                          Cumulative GPA: 3.8/4.0
+                          Current GPA: 
+                           {getGradePoint(module.grade).toFixed(1)}
                         </span>
                       </div>
                     </div>
