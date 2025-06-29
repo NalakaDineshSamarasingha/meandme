@@ -6,7 +6,6 @@ import {
   Globe,
   Linkedin,
   Github,
-  Download,
   Calendar,
   Award,
   Code,
