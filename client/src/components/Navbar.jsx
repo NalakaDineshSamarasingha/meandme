@@ -16,7 +16,7 @@ function Navbar() {
       <div className="flex justify-between items-center py-6 px-6 sm:py-8 sm:px-16">
         {/* Left Section */}
         <Link to='/'>
-          <div className="text-center sm:text-left">
+          <div className="text-left sm:text-left">
             <p className="text-base sm:text-lg font-semibold">Nalaka Dinesh</p>
             <p className="text-xs sm:text-sm opacity-70">Software Eng.</p>
           </div>

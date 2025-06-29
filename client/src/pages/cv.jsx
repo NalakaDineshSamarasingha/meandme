@@ -575,14 +575,6 @@ const ProfessionalCV = () => {
               </div>
             </div>
           )}
-
-          {/* Download Button */}
-          <div className="p-6 bg-gray-50 border-t flex justify-end items-end">
-            <button className="w-full sm:w-auto  flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-              <Download size={20} />
-              Download PDF
-            </button>
-          </div>
         </div>
       </div>
     </div>
