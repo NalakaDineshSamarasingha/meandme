@@ -74,7 +74,7 @@ function Navbar() {
           </a>
         </div>
         <div className="py-2 px-4 hover:bg-slate-800 transition duration-300 rounded-md">
-          <p>Resume</p>
+          <Link to='/cv'>Resume</Link>
         </div>
         <div className="py-2 px-4 hover:bg-slate-800 transition duration-300 rounded-md">
           <Link to='/info'>Area51</Link>
