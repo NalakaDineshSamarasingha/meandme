@@ -100,6 +100,7 @@ function Techie() {
 
   return (
     <div className="min-h-screen  py-16 relative overflow-hidden">
+    
       {/* Animated background particles */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (

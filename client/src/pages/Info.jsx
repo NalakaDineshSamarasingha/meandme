@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Navbar from "../components/Navbar";
 import Experience from "../components/Experience";
 import Techie from "../components/Techie";
+import TechStack3D from "../components/ThreeD";
 
 // Animation variants for different elements
 const fadeInUp = {
@@ -358,8 +359,10 @@ function Info() {
           variants={fadeInUp}
         >
           <Techie />
+          
         </motion.div>
       </div>
+          <TechStack3D/>
     </div>
   );
 }
