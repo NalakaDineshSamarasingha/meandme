@@ -37,7 +37,7 @@ function ProjectSection() {
       highlights: ["Ride Sharing", "Real-time Tracking", "Admin Panel"],
       links: {
         live: false,
-        github: "#"
+        github: "/carpool"
       }
     },
     {
@@ -163,9 +163,9 @@ function ProjectSection() {
             </a>
           )}
           {project.links.github && (
-            <a href={project.links.github} target='_blank' rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white text-sm font-medium transition-colors duration-200">
+            <a href={project.links.github} className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white text-sm font-medium transition-colors duration-200">
               <Github className="w-4 h-4" />
-              Code
+              More
             </a>
           )}
         </div>
