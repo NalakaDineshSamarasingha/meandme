@@ -4,6 +4,7 @@ import BackgroundAnimation from "../components/BackgroundAnimation";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import ProjectSectio from "../components/ProjectSectio";
+import BlogSec from "../components/BlogSec";
 
 // Animation variants for different elements
 const fadeInUp = {
@@ -118,6 +119,20 @@ function AnimatedProjectSection() {
       variants={slideInRight}
     >
       <ProjectSectio />
+    </motion.div>
+  );
+}
+function AnimatedBlogSection() {
+  const [ref, inView] = useScrollAnimation();
+  
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={slideInRight}
+    >
+      <BlogSec />
     </motion.div>
   );
 }
@@ -257,6 +272,16 @@ function Home() {
       >
         <ParallaxWrapper speed={0.2}>
           <AnimatedProjectSection />
+        </ParallaxWrapper>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+      >
+        <ParallaxWrapper speed={0.2}>
+          <AnimatedBlogSection />
         </ParallaxWrapper>
       </motion.div>
       

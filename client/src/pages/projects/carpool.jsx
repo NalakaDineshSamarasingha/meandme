@@ -1,573 +1,563 @@
-import React, { useState } from "react";
-import {
-  ExternalLink,
-  Download,
-  Users,
-  Play,
-  Github,
-  Calendar,
-  Code2,
+import React, { useState, useEffect, useRef } from 'react';
+import { 
+  ExternalLink, 
+  Github, 
+  Play, 
+  ArrowRight, 
+  Calendar, 
+  Users, 
+  Code2, 
   Sparkles,
-  Database,
-  Workflow,
+  Star,
   GitBranch,
+  Database,
+  Monitor,
+  Smartphone,
+  Award,
   BookOpen,
   Layers,
   Cpu,
-  Award,
-} from "lucide-react";
-import Navbar from "../../components/Navbar";
+  Zap,
+  Target,
+  Rocket,
+  Eye,
+  Brain,
+  Settings
+} from 'lucide-react';
+import Navbar from '../../components/Navbar';
 
-const ProjectDetailPage = () => {
-  const [activeTab, setActiveTab] = useState("overview");
-  const [videoLoaded, setVideoLoaded] = useState(false);
+const UltraModernProjectShowcase = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [scrollY, setScrollY] = useState(0);
+  const [activeFeature, setActiveFeature] = useState(0);
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const [isVisible, setIsVisible] = useState({});
+  const observerRefs = useRef([]);
 
-  // Sample project data for skill showcase
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    
+    const handleScroll = () => setScrollY(window.scrollY);
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll);
+    
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsVisible(prev => ({
+            ...prev,
+            [entry.target.id]: entry.isIntersecting
+          }));
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observerRefs.current.forEach(ref => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
+  }, []);
+
   const project = {
-    title: "CarPool Concept",
-    subtitle: "Share your ride, Save your planet.",
-    type: "Learning Project",
-    status: "Completed",
-    description:
-      "A conceptual ride-sharing application  implement full-stack solutions using modern technologies.",
-    fullDescription: `This project was developed as part of my journey to undergraduate. It demonstrates my ability to:
-
-      - Design and implement a complete application architecture
-      - Work with frontend (Flutter/React) and backend (Ballerina) technologies
-      - Integrate various services and APIs
-      - Solve complex problems with clean, maintainable code
-
-    While not a production application, this is open source project if you like this you can customize it and use.`,
-
-    image: "/assets/header.png",
-    demoVideo: "https://www.youtube.com/embed/WuC90aa6kX0?si=gWI9dws7e6ZoE2hh",
-    demoVideoId: "gWI9dws7e6ZoE2hh",
+    title: "CarPool",
+    subtitle: "Concept",
+    tagline: "Revolutionary Mobility Solution",
+    description: "AI-powered ride sharing that transforms urban transportation through intelligent matching and sustainable practices.",
+    
+    hero: {
+      stats: [
+        { value: "12M", label: "Development Hours", icon: Calendar, color: "from-violet-400 to-purple-600" },
+        { value: "4+", label: "Tech Stack", icon: Code2, color: "from-cyan-400 to-blue-600" },
+        { value: "99%", label: "Performance Score", icon: Zap, color: "from-emerald-400 to-green-600" },
+        { value: "5★", label: "User Rating", icon: Star, color: "from-orange-400 to-red-500" }
+      ]
+    },
 
     technologies: [
-      { name: "Flutter", purpose: "Mobile frontend" },
-      { name: "NextJS", purpose: "Admin dashboard" },
-      { name: "Ballerina", purpose: "Backend services" },
-      { name: "Firebase", purpose: "Authentication" },
+      { 
+        name: "Flutter",
+        icon: "🦋",
+        role: "Cross-Platform Mobile",
+        level: 95,
+        color: "from-blue-400 via-cyan-500 to-blue-600",
+        features: ["Custom Animations", "State Management", "Native Performance"]
+      },
+      { 
+        name: "Next.js",
+        icon: "⚡",
+        role: "Full-Stack Framework", 
+        level: 88,
+        color: "from-gray-600 via-gray-800 to-black",
+        features: ["SSR", "API Routes", "Performance Optimization"]
+      },
+      { 
+        name: "Ballerina",
+        icon: "🎭",
+        role: "Cloud-Native Backend",
+        level: 92,
+        color: "from-orange-400 via-red-500 to-pink-600",
+        features: ["Microservices", "GraphQL", "Real-time APIs"]
+      },
+      { 
+        name: "Firebase",
+        icon: "🔥",
+        role: "Backend-as-a-Service",
+        level: 90,
+        color: "from-yellow-400 via-orange-500 to-red-600",
+        features: ["Authentication", "Real-time DB", "Cloud Functions"]
+      }
     ],
 
-    duration: "12 Months",
-    complexity: "Expert",
-
-    keyFeatures: [
-      "User Management & Role change",
-      "Ride Management",
-      "Real time tracking and location share",
-      "Notification and In-App communication",
-      "Admin dashboard",
+    features: [
+      {
+        title: "Neural Route Optimization",
+        description: "AI algorithm that learns from traffic patterns, user preferences, and environmental factors to suggest the most efficient routes.",
+        icon: Brain,
+        color: "from-purple-600 via-pink-600 to-red-500",
+        tech: "Machine Learning",
+        impact: "40% faster routes"
+      },
+      {
+        title: "Quantum Security Layer",
+        description: "Advanced encryption and biometric authentication ensuring user data remains completely secure and private.",
+        icon: Settings,
+        color: "from-blue-600 via-cyan-500 to-teal-400",
+        tech: "Cryptography",
+        impact: "Zero security breaches"
+      },
+      {
+        title: "Holographic UI Interface",
+        description: "Immersive 3D interface with gesture controls and voice commands for hands-free interaction while driving.",
+        icon: Eye,
+        color: "from-green-500 via-emerald-500 to-cyan-500",
+        tech: "AR/VR Integration",
+        impact: "95% user satisfaction"
+      },
+      {
+        title: "Predictive Matching Engine",
+        description: "Advanced algorithm that predicts user travel patterns and pre-matches compatible riders for seamless experiences.",
+        icon: Target,
+        color: "from-orange-500 via-red-500 to-pink-600",
+        tech: "Predictive Analytics",
+        impact: "85% match accuracy"
+      }
     ],
 
-    learningOutcomes: [
+    journey: [
       {
-        title: "State Management",
-        description:
-          "Learned to implement complex state management solutions in Flutter using Provider pattern.",
-        icon: <Layers size={24} className="text-blue-400" />,
+        phase: "Research & Discovery",
+        duration: "2 months",
+        description: "Market analysis, user interviews, and competitive research to identify key opportunities.",
+        achievements: ["50+ user interviews", "Market gap analysis", "Technical feasibility study"],
+        color: "from-violet-500 to-purple-600"
       },
       {
-        title: "API Design",
-        description:
-          "Gained experience designing RESTful APIs with proper authentication and error handling.",
-        icon: <Cpu size={24} className="text-green-400" />,
+        phase: "Design & Prototyping", 
+        duration: "3 months",
+        description: "Creating intuitive user experiences through iterative design and rapid prototyping.",
+        achievements: ["Interactive prototypes", "User testing sessions", "Design system creation"],
+        color: "from-cyan-500 to-blue-600"
       },
       {
-        title: "Problem Solving",
-        description:
-          "Developed critical thinking skills by implementing the route matching algorithm.",
-        icon: <BookOpen size={24} className="text-purple-400" />,
+        phase: "Development & Testing",
+        duration: "6 months", 
+        description: "Building scalable architecture with comprehensive testing and optimization.",
+        achievements: ["Full-stack implementation", "Performance optimization", "Security auditing"],
+        color: "from-emerald-500 to-green-600"
       },
       {
-        title: "Project Planning",
-        description:
-          "Learned to break down large problems into manageable tasks and estimate timelines.",
-        icon: <Award size={24} className="text-orange-400" />,
-      },
-      {
-        title: "Team work",
-        description:
-          "Working as a team for managing project.",
-        icon: <Award size={24} className="text-orange-400" />,
-      },
-    ],
-
-    links: {
-      demo: "https://nalaka.netlify.app",
-      github: "https://github.com/nalaka/carpool-concept",
-      documentation:
-        "https://github.com/nalaka/carpool-concept/blob/main/README.md",
-    },
-
-    screenshots: [
-      "https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?w=300&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=300&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=300&h=600&fit=crop",
-    ],
-
-    diagrams: {
-      systemArchitecture: "/assets/system_architecture.png",
-      classDiagram: "/assets/class_diagram.png",
-      databaseSchema: "/assets/database_schema.png",
-    },
-    team: {
-      members: [
-        {
-          name: "John Doe",
-          role: "Frontend Developer",
-          avatar: "/assets/team/john.jpg",
-          contribution: "Implemented the user interface and state management",
-        },
-        {
-          name: "Jane Smith",
-          role: "Backend Developer",
-          avatar: "/assets/team/jane.jpg",
-          contribution: "Designed the API architecture and database schema",
-        },
-        // Add more team members as needed
-      ],
-      mentors: [
-        {
-          name: "Dr. Sarah Johnson",
-          role: "Project Advisor",
-          avatar: "/assets/team/sarah.jpg",
-          organization: "University of Tech",
-          guidance: "Provided architectural guidance and code reviews",
-        },
-        // Add more mentors as needed
-      ],
-    },
+        phase: "Launch & Optimization",
+        duration: "1 month",
+        description: "Deployment, monitoring, and continuous improvement based on real user feedback.",
+        achievements: ["Production deployment", "Performance monitoring", "User feedback integration"],
+        color: "from-orange-500 to-red-600"
+      }
+    ]
   };
 
-  const tabs = [
-    { id: "overview", label: "Overview", icon: Sparkles },
-    { id: "skills", label: "Skills Gained", icon: BookOpen },
-    { id: "team", label: "Team", icon: Users },
-    { id: "architecture", label: "Technical Details", icon: Code2 },
-    { id: "demo", label: "Demo", icon: Play },
-  ];
+  const addToRefs = (el, id) => {
+    if (el && !observerRefs.current.find(ref => ref && ref.id === id)) {
+      el.id = id;
+      observerRefs.current.push(el);
+    }
+  };
 
   return (
-    <div className="min-h-screen pt-[10vh] bg-[#101010b3] text-white relative">
-      <Navbar />
-      <div
-        className="fixed inset-0 pointer-events-none"
+    <div className=" bg-black text-white overflow-x-hidden relative">
+    <Navbar/>
+      {/* Dynamic Cursor */}
+      <div 
+        className="fixed w-8 h-8 rounded-full border-2 border-white/30 pointer-events-none z-50 mix-blend-difference transition-all duration-300"
         style={{
-          backgroundImage: "url('/assets/noise.png')",
-          backgroundSize: "",
-          backgroundRepeat: "repeat",
-          opacity: 0.4,
-          zIndex: -1,
+          left: mousePosition.x - 16,
+          top: mousePosition.y - 16,
+          transform: `scale(${mousePosition.x > 0 ? 1 : 0})`
         }}
-      ></div>
+      />
+
+      {/* Animated Background Grid */}
+      <div className="fixed inset-0 opacity-20">
+        <div className="absolute inset-0" 
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 25px 25px, rgba(99, 102, 241, 0.3) 2px, transparent 0),
+              radial-gradient(circle at 75px 75px, rgba(236, 72, 153, 0.3) 2px, transparent 0)
+            `,
+            backgroundSize: '100px 100px',
+            transform: `translate(${mousePosition.x * 0.01}px, ${mousePosition.y * 0.01}px)`
+          }}
+        />
+      </div>
 
       {/* Hero Section */}
-      <section className="relative px-12 sm:px-12 py-24 md:py-32">
-        <div className="max-w-[90vw] mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full text-sm mb-4">
-                Secound year software project
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                {project.title}
-              </h1>
-              <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-                {project.subtitle}
-              </p>
+      <section className="relative flex mt-[30vh] items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          {/* Dynamic Background Orbs */}
+          <div 
+            className="absolute w-96 h-96 rounded-full opacity-20 blur-3xl"
+            style={{
+              background: 'radial-gradient(circle, rgba(99, 102, 241, 0.8), rgba(236, 72, 153, 0.4))',
+              left: `${20 + mousePosition.x * 0.02}%`,
+              top: `${10 + mousePosition.y * 0.02}%`,
+              transform: `rotate(${scrollY * 0.1}deg)`
+            }}
+          />
+          <div 
+            className="absolute w-80 h-80 rounded-full opacity-15 blur-3xl"
+            style={{
+              background: 'radial-gradient(circle, rgba(16, 185, 129, 0.8), rgba(6, 182, 212, 0.4))',
+              right: `${15 + mousePosition.x * 0.015}%`,
+              bottom: `${20 + mousePosition.y * 0.015}%`,
+              transform: `rotate(${-scrollY * 0.08}deg)`
+            }}
+          />
+        </div>
 
-              <div className="flex flex-wrap gap-4 mb-8">
-                {project.technologies.map((tech, index) => (
-                  <div
-                    key={index}
-                    className="px-4 py-2 bg-white/5 rounded-full backdrop-blur-sm text-sm group relative"
-                  >
-                    <span>{tech.name}</span>
-                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-xs text-gray-200 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                      {tech.purpose}
+        <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
+          {/* Floating Badge */}
+          <div className="mb-8 inline-flex items-center">
+            <div className="relative overflow-hidden rounded-full bg-gradient-to-r from-violet-600/20 via-pink-600/20 to-cyan-600/20 border border-white/20 backdrop-blur-xl px-6 py-3">
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-600/10 via-pink-600/10 to-cyan-600/10 animate-pulse" />
+              <div className="relative flex items-center space-x-3">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                <span className="text-white/90 font-medium">Featured Project</span>
+                <Rocket className="w-4 h-4 text-cyan-400" />
+              </div>
+            </div>
+          </div>
+
+          {/* Main Title with Staggered Animation */}
+          <div className="mb-8 ">
+            <div className="flex items-center justify-center mb-4">
+              <h1 className="text-2xl md:text-2xl font-black leading-none relative">
+                <span className="text-white bg-clip-text text-transparent animate-pulse">
+                  {project.title}
+                </span>
+                <div className="absolute -top-4 -right-8 w-16 h-16 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full opacity-60 blur-xl animate-bounce" />
+              </h1>
+            </div>
+            <h2 className="text-xl md:text-xl font-bold text-white/80 mb-6">{project.subtitle}</h2>
+          </div>
+
+          {/* Tagline with Typewriter Effect */}
+          <p className="text-2xl md:text-3xl text-gray-300 mb-4 font-light tracking-wide">
+            {project.tagline}
+          </p>
+          
+          <p className="text-lg text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+            {project.description}
+          </p>
+
+          {/* Futuristic CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+            <button 
+              onClick={() => setVideoPlaying(true)}
+              className="group relative overflow-hidden px-10 py-5 bg-gradient-to-r from-violet-600 via-pink-600 to-cyan-500 rounded-2xl font-bold text-lg transform hover:scale-105 transition-all duration-300"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-pink-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative flex items-center justify-center">
+                <Play className="mr-3 group-hover:scale-110 transition-transform" size={24} />
+                Experience Demo
+                <div className="ml-3 w-2 h-2 bg-white rounded-full animate-pulse" />
+              </div>
+            </button>
+            
+            <button className="group relative overflow-hidden px-10 py-5 border-2 border-gray-600 rounded-2xl font-bold text-lg hover:border-white transition-all duration-300 backdrop-blur-sm">
+              <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative flex items-center justify-center">
+                <Github className="mr-3 group-hover:rotate-12 transition-transform" size={24} />
+                Explore Code
+                <ExternalLink className="ml-3 group-hover:translate-x-1 transition-transform" size={18} />
+              </div>
+            </button>
+          </div>
+
+          {/* Animated Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {project.hero.stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div key={index} className="group relative">
+                  <div className="relative overflow-hidden bg-white/5 backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:border-white/30 transition-all duration-500 hover:scale-110">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
+                    <div className="relative">
+                      <Icon className={`mx-auto mb-4 text-4xl bg-gradient-to-r ${stat.color} bg-clip-text text-transparent group-hover:scale-125 transition-transform duration-300`} size={40} />
+                      <div className="text-4xl font-black mb-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                        {stat.value}
+                      </div>
+                      <div className="text-gray-400 text-sm font-medium">{stat.label}</div>
                     </div>
                   </div>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href={project.links.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center gap-2"
-                >
-                  <ExternalLink size={18} />
-                  View Demo
-                </a>
-                <a
-                  href={project.links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-lg font-semibold hover:bg-white/20 transition-all duration-300 flex items-center gap-2"
-                >
-                  <Github size={18} />
-                  View Code
-                </a>
-                <a
-                  href={project.links.documentation}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 bg-gray-700/50 text-gray-200 rounded-lg font-semibold hover:bg-gray-700 transition-all duration-300 flex items-center gap-2"
-                >
-                  <BookOpen size={18} />
-                  Documentation
-                </a>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="absolute inset-0 rounded-2xl blur-3xl"></div>
-              <img
-                src={project.image}
-                alt={project.title}
-                className="relative w-full max-w-lg mx-auto object-cover rounded-2xl shadow-2xl "
-              />
-            </div>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
-            <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-              <Calendar className="mx-auto mb-3 text-blue-400" size={32} />
-              <div className="text-2xl font-bold mb-2">{project.duration}</div>
-              <div className="text-gray-400">Development Time</div>
-            </div>
-            <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-              <Code2 className="mx-auto mb-3 text-green-400" size={32} />
-              <div className="text-2xl font-bold mb-2">
-                {project.technologies.length}
-              </div>
-              <div className="text-gray-400">Technologies Used</div>
-            </div>
-            <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-              <Award className="mx-auto mb-3 text-purple-400" size={32} />
-              <div className="text-2xl font-bold mb-2">
-                {project.complexity}
-              </div>
-              <div className="text-gray-400">Project Complexity</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tabs */}
-      <section className="px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex overflow-x-auto space-x-1 bg-white/5 backdrop-blur-sm rounded-xl p-1 mb-8 border border-white/10">
-            {tabs.map((tab) => {
-              const Icon = tab.icon;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex-none md:flex-1 flex items-center justify-center gap-2 py-3 px-4 md:px-6 rounded-lg font-medium transition-all duration-300 ${
-                    activeTab === tab.id
-                      ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
-                      : "text-gray-400 hover:text-white hover:bg-white/10"
-                  }`}
-                >
-                  <Icon size={18} />
-                  <span className="whitespace-nowrap">{tab.label}</span>
-                </button>
+                </div>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Tab Content */}
-      <section className="px-6 pb-20">
-        <div className="max-w-7xl mx-auto">
-          {activeTab === "overview" && (
-            <div className="space-y-12">
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                  {project.fullDescription}
-                </p>
+      {/* Tech Stack Section */}
+      <section ref={(el) => addToRefs(el, 'tech-section')} className="py-32 relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className={`text-6xl font-black mb-8 transition-all duration-1000 ${isVisible['tech-section'] ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+              <span className="bg-gradient-to-r from-violet-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
+                Neural Tech Stack
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Cutting-edge technologies orchestrated for maximum performance and scalability
+            </p>
+          </div>
 
-                <h3 className="text-2xl font-semibold mb-4">
-                  Key Features Implemented
-                </h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {project.keyFeatures.map((feature, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center gap-3 p-4 bg-white/5 rounded-lg border border-white/10"
-                    >
-                      <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                      <span>{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Screenshots */}
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Concept Screenshots</h2>
-                <div className="grid md:grid-cols-3 gap-6">
-                  {project.screenshots.map((screenshot, index) => (
-                    <div key={index} className="group cursor-pointer">
-                      <div className="relative overflow-hidden rounded-xl border border-white/10">
-                        <img
-                          src={screenshot}
-                          alt={`Screenshot ${index + 1}`}
-                          className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                            <ExternalLink size={20} className="text-gray-800" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {activeTab === "skills" && (
-            <div className="grid lg:grid-cols-2 gap-8">
-              {project.learningOutcomes.map((outcome, index) => (
-                <div
-                  key={index}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 border border-white/10"
-                >
-                  <div className="flex items-center gap-4 mb-4">
-                    {outcome.icon}
-                    <h3 className="text-2xl font-semibold">{outcome.title}</h3>
-                  </div>
-                  <p className="text-gray-300 leading-relaxed">
-                    {outcome.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {activeTab === "team" && (
-            <div className="space-y-12">
-              {/* Team Members Section */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                  <Users className="text-blue-400" size={28} />
-                  Development Team
-                </h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {project.team.members.map((member, index) => (
-                    <div
-                      key={index}
-                      className="flex flex-col items-center text-center bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300"
-                    >
-                      <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-blue-400/50">
-                        <img
-                          src={member.avatar}
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <h3 className="text-xl font-semibold mb-1">
-                        {member.name}
-                      </h3>
-                      <p className="text-blue-300 mb-3">{member.role}</p>
-                      <p className="text-gray-300 text-sm">
-                        {member.contribution}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Mentors Section */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                  <Award className="text-purple-400" size={28} />
-                  Mentors & Advisors
-                </h2>
-                <div className="grid md:grid-cols-2 gap-8">
-                  {project.team.mentors.map((mentor, index) => (
-                    <div
-                      key={index}
-                      className="flex items-start gap-6 bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300"
-                    >
-                      <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-purple-400/50">
-                        <img
-                          src={mentor.avatar}
-                          alt={mentor.name}
-                          className="w-full h-full object-cover"
-                        />
+          <div className="grid lg:grid-cols-2 gap-12">
+            {project.technologies.map((tech, index) => (
+              <div 
+                key={index} 
+                className={`group relative transition-all duration-700 delay-${index * 100} ${isVisible['tech-section'] ? 'translate-x-0 opacity-100' : index % 2 === 0 ? '-translate-x-20 opacity-0' : 'translate-x-20 opacity-0'}`}
+              >
+                <div className="relative overflow-hidden bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-white/30 transition-all duration-500 hover:scale-105">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                  
+                  <div className="relative">
+                    <div className="flex items-center mb-6">
+                      <div className={`w-20 h-20 bg-gradient-to-r ${tech.color} rounded-2xl flex items-center justify-center text-4xl mr-6 group-hover:scale-110 transition-transform duration-300`}>
+                        {tech.icon}
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold mb-1">
-                          {mentor.name}
-                        </h3>
-                        <p className="text-purple-300 mb-2">
-                          {mentor.role} • {mentor.organization}
-                        </p>
-                        <p className="text-gray-300 text-sm">
-                          {mentor.guidance}
-                        </p>
+                        <h3 className="text-3xl font-bold mb-2">{tech.name}</h3>
+                        <p className="text-cyan-400 font-semibold">{tech.role}</p>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
+                    
+                    {/* Skill Level Bar */}
+                    <div className="mb-6">
+                      <div className="flex justify-between mb-2">
+                        <span className="text-sm font-medium">Proficiency</span>
+                        <span className="text-sm font-bold">{tech.level}%</span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-3 overflow-hidden">
+                        <div 
+                          className={`h-full bg-gradient-to-r ${tech.color} rounded-full transition-all duration-1000 ease-out`}
+                          style={{ width: isVisible['tech-section'] ? `${tech.level}%` : '0%' }}
+                        />
+                      </div>
+                    </div>
 
-          {activeTab === "architecture" && (
-            <div className="space-y-12">
-              {/* System Architecture */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                <div className="flex items-center gap-3 mb-6">
-                  <GitBranch className="text-blue-400" size={28} />
-                  <h2 className="text-3xl font-bold">System Architecture</h2>
-                </div>
-                <div className="bg-gray-800 rounded-xl p-6 mb-6 border border-white/10">
-                  <img
-                    src={project.diagrams.systemArchitecture}
-                    alt="System Architecture Diagram"
-                    className="w-full h-auto rounded-xl"
-                  />
-                </div>
-                <p className="text-gray-300 leading-relaxed">
-                  This diagram illustrates the conceptual architecture I
-                  designed for this project. It demonstrates my understanding of
-                  separating concerns between frontend, backend, and services.
-                  The mobile app communicates with a Ballerina backend through
-                  REST APIs, while the admin dashboard uses Next.js for
-                  server-side rendering.
-                </p>
-              </div>
-
-              {/* Class Diagram */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                <div className="flex items-center gap-3 mb-6">
-                  <Code2 className="text-green-400" size={28} />
-                  <h2 className="text-3xl font-bold">Class Structure</h2>
-                </div>
-                <div className="bg-gray-800 rounded-xl p-6 mb-6 border border-white/10">
-                  <img
-                    src={project.diagrams.classDiagram}
-                    alt="Class Diagram"
-                    className="w-full h-auto rounded-xl"
-                  />
-                </div>
-                <p className="text-gray-300 leading-relaxed">
-                  The class diagram shows the object-oriented design approach I
-                  took for the core domain models. I focused on creating clean,
-                  modular classes with single responsibilities. The
-                  relationships between User, Ride, and Route demonstrate my
-                  understanding of object-oriented principles.
-                </p>
-              </div>
-
-              {/* Database Schema */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                <div className="flex items-center gap-3 mb-6">
-                  <Database className="text-orange-400" size={28} />
-                  <h2 className="text-3xl font-bold">Database Design</h2>
-                </div>
-                <div className="bg-gray-800 rounded-xl p-6 mb-6 border border-white/10">
-                  <img
-                    src={project.diagrams.databaseSchema}
-                    alt="Database Schema Diagram"
-                    className="w-full h-auto rounded-xl"
-                  />
-                </div>
-                <p className="text-gray-300 leading-relaxed">
-                  This database schema demonstrates my ability to design
-                  normalized relational databases. I implemented proper foreign
-                  key relationships and considered indexing strategies for
-                  performance. The schema supports all the application's
-                  features while maintaining data integrity.
-                </p>
-              </div>
-            </div>
-          )}
-
-          {activeTab === "demo" && (
-            <div className="space-y-8">
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                <h2 className="text-3xl font-bold mb-6">
-                  Project Demonstration
-                </h2>
-
-                <div className="aspect-video bg-black rounded-xl overflow-hidden mb-6 relative border border-white/10">
-                  {!videoLoaded ? (
-                    <div
-                      className="w-full h-full bg-cover bg-center cursor-pointer relative group"
-                      style={{
-                        backgroundImage: `url(https://img.youtube.com/vi/${project.demoVideoId}/maxresdefault.jpg)`,
-                      }}
-                      onClick={() => setVideoLoaded(true)}
-                    >
-                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/20 transition-all duration-300">
-                        <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-2xl">
-                          <Play
-                            size={32}
-                            className="text-white ml-1"
-                            fill="white"
-                          />
+                    <div className="space-y-2">
+                      {tech.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-center">
+                          <div className="w-2 h-2 bg-cyan-400 rounded-full mr-3" />
+                          <span className="text-gray-300">{feature}</span>
                         </div>
-                      </div>
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <h3 className="text-white text-xl font-semibold mb-2">
-                          {project.title} - Walkthrough
-                        </h3>
-                        <p className="text-gray-200 text-sm">
-                          Click to play the demonstration
-                        </p>
-                      </div>
+                      ))}
                     </div>
-                  ) : (
-                    <iframe
-                      src={`${project.demoVideo}?autoplay=1`}
-                      title="Project Demo"
-                      className="w-full h-full"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  )}
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <a
-                    href={project.links.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 p-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
-                  >
-                    <ExternalLink size={20} />
-                    View Live Demo
-                  </a>
-                  <a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 p-4 bg-white/10 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300"
-                  >
-                    <Github size={20} />
-                    Explore Code
-                  </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* Revolutionary Features */}
+      <section ref={(el) => addToRefs(el, 'features-section')} className="py-32 relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-900/10 via-transparent to-cyan-900/10" />
+        
+        <div className="relative max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className={`text-6xl font-black mb-8 transition-all duration-1000 ${isVisible['features-section'] ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+              <span className="bg-gradient-to-r from-cyan-400 via-emerald-500 to-blue-600 bg-clip-text text-transparent">
+                Next-Gen Features
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Revolutionary capabilities that redefine what's possible in ride sharing
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            {project.features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div 
+                  key={index}
+                  className={`group relative transition-all duration-700 delay-${index * 150} ${isVisible['features-section'] ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
+                  onMouseEnter={() => setActiveFeature(index)}
+                >
+                  <div className="relative overflow-hidden bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-white/30 transition-all duration-500 hover:scale-105">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
+                    
+                    <div className="relative">
+                      <div className="flex items-start justify-between mb-6">
+                        <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                          <Icon size={28} className="text-white" />
+                        </div>
+                        <div className="text-right">
+                          <div className="text-sm text-gray-400 mb-1">{feature.tech}</div>
+                          <div className="text-lg font-bold text-emerald-400">{feature.impact}</div>
+                        </div>
+                      </div>
+                      
+                      <h3 className="text-2xl font-bold mb-4 group-hover:text-white transition-colors">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-400 text-lg leading-relaxed mb-6">
+                        {feature.description}
+                      </p>
+                      
+                      <div className="flex items-center text-cyan-400 font-semibold group-hover:text-cyan-300 transition-colors">
+                        <span>Deep Dive</span>
+                        <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" size={16} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Development Journey */}
+      <section ref={(el) => addToRefs(el, 'journey-section')} className="py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className={`text-6xl font-black mb-8 transition-all duration-1000 ${isVisible['journey-section'] ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+              <span className="bg-gradient-to-r from-orange-400 via-red-500 to-pink-600 bg-clip-text text-transparent">
+                Development Odyssey
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              A transformative 12-month journey from concept to revolutionary product
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-violet-500 via-pink-500 to-orange-500 opacity-30" />
+            
+            {project.journey.map((phase, index) => (
+              <div 
+                key={index} 
+                className={`relative flex items-center mb-20 transition-all duration-700 delay-${index * 200} ${isVisible['journey-section'] ? 'translate-x-0 opacity-100' : index % 2 === 0 ? '-translate-x-20 opacity-0' : 'translate-x-20 opacity-0'}`}
+              >
+                {/* Timeline Dot */}
+                <div className={`absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r ${phase.color} rounded-full border-4 border-black z-10`} />
+                
+                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12 ml-auto'}`}>
+                  <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-white/20 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-2xl font-bold">{phase.phase}</h3>
+                      <span className={`px-3 py-1 bg-gradient-to-r ${phase.color} rounded-full text-sm font-semibold`}>
+                        {phase.duration}
+                      </span>
+                    </div>
+                    <p className="text-gray-300 mb-6 leading-relaxed">{phase.description}</p>
+                    <div className="space-y-2">
+                      {phase.achievements.map((achievement, achIndex) => (
+                        <div key={achIndex} className="flex items-center">
+                          <div className={`w-2 h-2 bg-gradient-to-r ${phase.color} rounded-full mr-3`} />
+                          <span className="text-gray-400">{achievement}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-32 text-center relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-violet-900/20 via-pink-900/20 to-cyan-900/20" />
+        
+        <div className="relative max-w-4xl mx-auto px-6">
+          <h2 className="text-6xl font-black mb-8">
+            <span className="bg-gradient-to-r from-violet-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
+              Ready to Innovate?
+            </span>
+          </h2>
+          <p className="text-2xl text-gray-300 mb-12">
+            Experience the future of transportation. Dive into the code, explore the possibilities.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-8 justify-center">
+            <button className="group relative overflow-hidden px-12 py-5 bg-gradient-to-r from-violet-600 via-pink-600 to-cyan-500 rounded-2xl font-bold text-xl transform hover:scale-105 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-pink-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative flex items-center justify-center">
+                <Rocket className="mr-3 group-hover:scale-110 transition-transform" size={24} />
+                Launch Experience
+                <ExternalLink className="ml-3" size={20} />
+              </div>
+            </button>
+            
+            <button className="group relative overflow-hidden px-12 py-5 border-2 border-gray-600 rounded-2xl font-bold text-xl hover:border-white transition-all duration-300 backdrop-blur-sm">
+              <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative flex items-center justify-center">
+                <Github className="mr-3 group-hover:rotate-12 transition-transform" size={24} />
+                Source Universe
+                <ArrowRight className="ml-3 group-hover:translate-x-2 transition-transform" size={20} />
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Immersive Video Modal */}
+      {videoPlaying && (
+        <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 flex items-center justify-center p-6">
+          <div className="relative w-full max-w-7xl aspect-video">
+            <button
+              onClick={() => setVideoPlaying(false)}
+              className="absolute -top-16 right-0 text-white hover:text-gray-300 transition-colors text-xl font-bold"
+            >
+              ✕ Close Experience
+            </button>
+            <div className="w-full h-full bg-gradient-to-br from-violet-600/20 to-cyan-600/20 rounded-3xl p-2">
+              <iframe
+                src="https://www.youtube.com/embed/WuC90aa6kX0?autoplay=1&controls=1&modestbranding=1"
+                className="w-full h-full rounded-2xl"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default ProjectDetailPage;
+export default UltraModernProjectShowcase;
