@@ -315,6 +315,27 @@ const TechStack3D = () => {
     );
   }
 
+  if (!isLoaded) {
+    return (
+      <div className="relative w-full h-screen overflow-hidden bg-[#101010b3] flex items-center justify-center">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: "url('/assets/noise.png')",
+            backgroundSize: "",
+            backgroundRepeat: "repeat",
+            opacity: 0.4,
+            zIndex: 1,
+          }}
+        ></div>
+        <div className="text-center text-white z-10">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading 3D Scene...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative w-full h-screen overflow-hidden bg-[#101010b3]">
     <div
