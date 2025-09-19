@@ -30,7 +30,7 @@ function ProjectSection() {
       description: "Ride sharing platform for organizations.Collab with WSO2.",
       image: "/assets/carpool.png",
       technologies: ["Flutter","NextJs", "Ballerina", "Firebase"],
-      category: "Mobile App",
+      category: "Mobile Application",
       status: "In Development",
       users: "1000+",
       duration: "12 Months",
@@ -72,26 +72,42 @@ function ProjectSection() {
         github: "https://github.com/NalakaDineshSamarasingha/nalaka-firestore"
       }
     },
+    {
+      id: 3,
+      title: "SpendWise",
+      description: "SpendWise is an expense tracking app designed to make money management simple.Based own my own problem.",
+      image: "/assets/spendwise.png",
+      technologies: ["React Native","Node.js","Express.js","MongoDB"],
+      category: "Mobile Application",
+      status: "Live",
+      users: "",
+      duration: "1.0.0",
+      highlights: ["Track expenses","Manage finance"," Collaborate with other user(Parents,Partner)"],
+      links: {
+        live: "https://github.com/NalakaDineshSamarasingha/SpendWise-frontend/releases/tag/v1.0.0",
+        github: "/spendwise"
+      }
+    },
     
   ];
 
   const skillProjects = [
-    // {
-    //   id: 4,
-    //   title: "AI Chat Bot",
-    //   description: "Intelligent chatbot using natural language processing for customer support automation.",
-    //   image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
-    //   technologies: ["Python", "TensorFlow", "Flask", "OpenAI"],
-    //   category: "AI/ML",
-    //   status: "Completed",
-    //   skillLevel: "Advanced",
-    //   duration: "2 months",
-    //   highlights: ["NLP Integration", "Context Understanding", "Multi-language"],
-    //   links: {
-    //     demo: "#",
-    //     github: "#"
-    //   }
-    // },
+    {
+      id: 4,
+      title: "EventPark",
+      description: "Eventpark is a simple event management and ticket booking system developed as part of a university web programming module. It allows users to browse upcoming events, book tickets online, and manage their reservations easily, while providing organizers with tools to create and manage events efficiently.",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
+      technologies: ["React.js","Laravel"],
+      category: "Web Application",
+      status: "Completed",
+      skillLevel: "Beginner",
+      duration: "4 months",
+      highlights: ["List Events", "Browse Events", "Book Event"],
+      links: {
+        demo: "#",
+        github: "#"
+      }
+    },
     // {
     //   id: 5,
     //   title: "Cryptocurrency Tracker",
