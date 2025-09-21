@@ -9,10 +9,11 @@ const PortfolioProjects = () => {
       title: "CarPool",
       description: "Ride sharing platform for organizations.Collab with WSO2.",
       image: "/assets/carpool.png",
-      technologies: ["Flutter","NextJs", "Ballerina", "Firebase"],
+      video: "/Assets/project.mp4", // place project.mp4 inside public/Assets/
+      technologies: ["Flutter","NextJs", "Ballerina", "Firebase","Choreo", "Google Map APIs"],
       category: "Mobile Application",
-      status: "In Development",
-      users: "1000+",
+      status: "V1.0.0",
+      users: "0",
       duration: "12 Months",
       highlights: ["Ride Sharing", "Real-time Tracking", "Admin Panel"],
       links: {
@@ -24,7 +25,7 @@ const PortfolioProjects = () => {
     {
       id: 2,
       title: "KimbulaGO",
-      category: "BRAIN TECHNOLOGIES",
+      category: "Something awsome, Get in touch",
       image: "/api/placeholder/400/400",
       bgColor: "bg-gray-100",
       isPhone: true
@@ -73,20 +74,22 @@ const PortfolioProjects = () => {
   ];
 
   return (
-  <section className="bg-[#111111] min-h-screen p-4 sm:p-6 md:p-8">
+  <section className="bg-[#111111] min-h-screen p-3 sm:p-5 md:p-8">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-6xl font-light text-white mb-3 md:mb-4">
+        {/* Tightened heading margins for mobile */}
+        <div className="mb-6 md:mb-12">
+          <h2 className="text-3xl md:text-6xl font-light text-white mb-2 md:mb-4">
             PROJECTS
           </h2>
-          <p className="text-gray-400 text-base md:text-lg">
+          <p className="text-gray-400 text-sm md:text-lg">
             A collection of selected work and experiments
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-fr">
+        {/* Reduced gap between cards on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 auto-rows-fr">
           {/* Project 1 - CarPool */}
-          <div className="bg-[#111111] overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col">
+          <div className="bg-[#111111] overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col rounded-lg">
             {/* Status Badge */}
             {projects[0].status && (
               <div className="absolute top-4 right-4 z-10">
@@ -96,24 +99,40 @@ const PortfolioProjects = () => {
               </div>
             )}
             {/* Image / Preview */}
-            <div className="relative bg-gray-800 flex items-center justify-center overflow-hidden py-6 md:h-44 md:py-0">
-              <img
-                src={projects[0].image}
-                alt={projects[0].title}
-                className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
-              />
+            {/* Reduce vertical padding on mobile */}
+            <div className="relative bg-gray-800 flex items-center justify-center overflow-hidden py-4  md:py-0">
+              {projects[0].video ? (
+                <video
+                  src={projects[0].video}
+                  className="w-full h-full object-cover md:object-contain transform group-hover:scale-[1.02] transition-all duration-700"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  onError={(e)=>{e.currentTarget.style.display='none';}}
+                >
+                  Sorry, your browser doesn't support embedded videos.
+                </video>
+              ) : (
+                <img
+                  src={projects[0].image.replace('/assets/','/Assets/')}
+                  alt={projects[0].title}
+                  className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
             </div>
             {/* Content */}
-            <div className="p-4 md:p-5 flex flex-col gap-3 md:gap-4 flex-1">
+            <div className="p-3 md:p-5 flex flex-col gap-2.5 md:gap-4 flex-1">
               <div>
-                <h3 className="text-white font-semibold text-lg tracking-tight flex items-center gap-2">
+                <h3 className="text-white font-semibold text-base md:text-lg tracking-tight flex items-center gap-2">
                   {projects[0].title}
                   <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-gray-800 text-gray-400 border border-gray-700">
                     {projects[0].category}
                   </span>
                 </h3>
-                <p className="text-gray-400 text-sm mt-2 leading-relaxed">
+                <p className="text-gray-400 text-xs md:text-sm mt-1.5 leading-relaxed">
                   {projects[0].description}
                 </p>
               </div>
@@ -146,7 +165,7 @@ const PortfolioProjects = () => {
                 {projects[0].duration && <div><span className="text-gray-400">Duration:</span> {projects[0].duration}</div>}
               </div>
               {/* Actions */}
-              <div className="flex items-center justify-between pt-2 mt-auto">
+              <div className="flex items-center justify-between pt-1 md:pt-2 mt-auto">
                 <button
                   disabled={!projects[0].links?.live}
                   className={`text-xs font-medium px-3 py-2 rounded-md border transition-colors ${projects[0].links?.live ? 'border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/10' : 'border-gray-700 text-gray-500 cursor-not-allowed'}`}
@@ -168,7 +187,7 @@ const PortfolioProjects = () => {
           {/* Project 2 - KimbulaGO with Lottie animation (independent sizing) */}
           <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col">
             {/* Mobile: content-fit height; md+: use aspect to normalize */}
-            <div className="relative w-full bg-gray-800 flex items-center justify-center py-8 md:py-0 md:aspect-[16/10]">
+            <div className="relative w-full bg-gray-800 flex items-center justify-center py-6 md:py-0 md:aspect-[16/10]">
               <div className="relative w-full h-full flex items-center justify-center">
                 <Lottie
                   src="https://cdn.lottielab.com/l/AacwDyqM9Vubx9.json"
@@ -181,9 +200,9 @@ const PortfolioProjects = () => {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-gray-950/70 via-transparent opacity-40 group-hover:opacity-70 transition-opacity" />
             </div>
-            <div className="p-4 md:p-5 flex flex-col gap-2 md:gap-3">
-              <h3 className="text-white font-semibold text-lg tracking-tight">{projects[1].title}</h3>
-              <p className="text-gray-400 text-xs uppercase tracking-wider">{projects[1].category}</p>
+            <div className="p-3 md:p-5 flex flex-col gap-2 md:gap-3">
+              <h3 className="text-white font-semibold text-base md:text-lg tracking-tight">{projects[1].title}</h3>
+              <p className="text-gray-400 text-[10px] md:text-xs uppercase tracking-wider">{projects[1].category}</p>
               <div className="mt-2 flex items-center justify-between">
                 {projects[0].links?.github && (
                   <a
@@ -202,23 +221,22 @@ const PortfolioProjects = () => {
           </div>
 
           {/* Third column: SpendWise + Ballerina Module stacked */}
-          <div className="flex flex-col gap-4 md:gap-6">
+          <div className="flex flex-col gap-3 md:gap-6">
             {/* SpendWise (existing project 3) */}
             <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col">
-              <div className="relative w-full bg-gray-800 flex items-center justify-center py-8 md:py-0 md:aspect-[16/9]">
+              <div className="relative w-full bg-gray-800 flex items-center justify-center py-6 md:py-0 md:aspect-[16/9]">
                 <div className="relative w-full h-full flex items-center justify-center">
-                  <Lottie
-                    src="https://cdn.lottielab.com/l/Cz3oUBxpVndpXq.json"
-                    autoplay
-                    loop
-                    className="w-[70%] md:w-[55%] h-auto"
-                    fallback={<span className="text-[10px] text-gray-400">Animation unavailable</span>}
+                  <img
+                    src="/Assets/spendwise.png"
+                    alt="SpendWise screenshot"
+                    className="max-h-40 w-auto object-contain drop-shadow md:max-h-48 animate-soft-bounce group-hover:pause-bounce"
+                    onError={(e)=>{ e.currentTarget.replaceWith(document.createElement('span')); const span=e.currentTarget.previousSibling || e.currentTarget.parentElement?.lastChild; if(span){span.textContent='Image unavailable'; span.className='text-[10px] text-gray-400';}}}
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-950/70 via-transparent opacity-40 group-hover:opacity-70 transition-opacity" />
               </div>
-              <div className="p-4 md:p-5 flex flex-col gap-2 md:gap-3">
-                <h3 className="text-white font-semibold text-lg tracking-tight">{projects[2].title}</h3>
+              <div className="p-3 md:p-5 flex flex-col gap-2 md:gap-3">
+                <h3 className="text-white font-semibold text-base md:text-lg tracking-tight">{projects[2].title}</h3>
                 <div className="mt-2 flex items-center justify-between">
                   {projects[2].downloadable && (
                     <a
@@ -235,11 +253,11 @@ const PortfolioProjects = () => {
               </div>
             </div>
             {/* Ballerina Firebase Module (project 6) */}
-            <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col p-4 md:p-5 gap-3 md:gap-4">
+            <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col p-3 md:p-5 gap-3 md:gap-4">
               <div className="flex items-start gap-3">
                 <img src={projects[5].image} alt={projects[5].title} className="w-20 h-20 object-cover rounded-md border border-gray-700" />
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-lg tracking-tight flex items-center gap-2">
+                  <h3 className="text-white font-semibold text-base md:text-lg tracking-tight flex items-center gap-2">
                     {projects[5].title}
                     <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-gray-800 text-gray-400 border border-gray-700">
                       {projects[5].category}
@@ -275,22 +293,37 @@ const PortfolioProjects = () => {
           </div>
 
           {/* Project 4 - APPLE with live website preview (moved to next row) */}
-          <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col lg:col-span-2 h-screen md:h-auto min-h-screen md:min-h-0">
-            <div className="flex-1 flex">
-              <WebsitePreview url="https://nalaka.netlify.app/" title="APPLE Live Preview" className="rounded-none flex-1" />
+          {/* Removed full screen height on mobile to reduce large empty vertical space */}
+          <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col lg:col-span-2 h-[480px] md:h-auto min-h-0">
+            <div className="flex-1 flex min-h-0">
+              <WebsitePreview
+                url="https://nalaka.netlify.app/"
+                title="PORTFOLIO Live Preview"
+                className="rounded-none flex-1"
+                autoScroll
+                scrollSpeed={28}
+                scrollPause={1400}
+                scrollStrategy="postMessage"
+              />
             </div>
           </div>
 
           {/* Project 5 - MUSIC APP */}
           <div className="bg-[#111111] rounded-lg overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
-            <div className="p-5 md:p-6 bg-gray-800 flex items-center justify-center py-8 md:h-48 md:py-0">
-              <div className="w-20 h-20 border-4 border-white rounded-full flex items-center justify-center">
-                <div className="w-3 h-3 bg-white rounded-full"></div>
+            <div className="p-4 md:p-6 bg-gray-800 flex items-center justify-center py-6 md:h-48 md:py-0">
+              <div className="w-24 h-24 md:w-20 md:h-20 border-4 border-white rounded-full flex items-center justify-center overflow-hidden bg-gray-900/40">
+                <img
+                  src="/Assets/goviya.png"
+                  alt="Goviya"
+                  className="w-full h-full object-cover animate-soft-bounce group-hover:pause-bounce"
+                  loading="lazy"
+                  onError={(e)=>{e.currentTarget.replaceWith(Object.assign(document.createElement('span'),{textContent:'Image missing',className:'text-[10px] text-gray-400'}));}}
+                />
               </div>
             </div>
-            <div className="p-5 md:p-6">
-              <h3 className="text-white font-bold text-lg mb-1">MUSIC APP</h3>
-              <p className="text-gray-400 text-sm uppercase tracking-wider">MOBILE APPLICATION</p>
+            <div className="p-4 md:p-6">
+              <h3 className="text-white font-bold text-base md:text-lg mb-1">GOVIYA APP</h3>
+              <p className="text-gray-400 text-xs md:text-sm uppercase tracking-wider">MOBILE APPLICATION</p>
             </div>
           </div>
         </div>
