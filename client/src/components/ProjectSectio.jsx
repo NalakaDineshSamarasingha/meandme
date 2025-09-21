@@ -1,29 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { 
+import React from 'react';
+import Lottie from './Lottie';
+import WebsitePreview from './WebsitePreview';
 
-  Github, 
-  Globe, 
-
-  Briefcase, 
-  GraduationCap,
-
-  Calendar,
-  Users,
-
-  Target,
-  ArrowRight,
-  Eye
-} from 'lucide-react';
-
-function ProjectSection() {
-  const [activeTab, setActiveTab] = useState('real-world');
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  const realWorldProjects = [
+const PortfolioProjects = () => {
+  const projects = [
     {
       id: 1,
       title: "CarPool",
@@ -38,338 +18,229 @@ function ProjectSection() {
       links: {
         live: false,
         github: "/carpool"
-      }
+      },
+      bgColor: "bg-gray-800"
     },
     {
       id: 2,
-      title: "My Portfolio",
-      description: "Static website design by me for showcase my passion. Made with 50% love and 50% coffee.",
-      image: "/assets/image.png",
-      technologies: ["ReactJs"],
-      category: "Web Application",
-      status: "Live",
-      users: "",
-      duration: "Current",
-      highlights: ["Showcase My Passion"],
-      links: {
-        live: "https://nalaka.netlify.app/",
-        github: "https://github.com/NalakaDineshSamarasingha/meandme#"
-      }
-    },
-    {
-      id: 3,
-      title: "Ballerina Firebase Module",
-      description: "Ballerina Module for accessing firebase firestore database.",
-      image: "/assets/3.jpg",
-      technologies: ["Ballerina"],
-      category: "Package",
-      status: "Live",
-      users: "",
-      duration: "1.0.0",
-      highlights: ["Ballerina Package"],
-      links: {
-        live: "https://central.ballerina.io/nalaka/firestore/1.0.0",
-        github: "https://github.com/NalakaDineshSamarasingha/nalaka-firestore"
-      }
+      title: "KimbulaGO",
+      category: "BRAIN TECHNOLOGIES",
+      image: "/api/placeholder/400/400",
+      bgColor: "bg-gray-100",
+      isPhone: true
     },
     {
       id: 3,
       title: "SpendWise",
-      description: "SpendWise is an expense tracking app designed to make money management simple.Based own my own problem.",
-      image: "/assets/spendwise.png",
-      technologies: ["React Native","Node.js","Express.js","MongoDB"],
-      category: "Mobile Application",
-      status: "Live",
-      users: "",
-      duration: "1.0.0",
-      highlights: ["Track expenses","Manage finance"," Collaborate with other user(Parents,Partner)"],
-      links: {
-        live: "https://github.com/NalakaDineshSamarasingha/SpendWise-frontend/releases/tag/v1.0.0",
-        github: "/spendwise"
-      }
+      category: "FINANCE APP",
+      image: "/api/placeholder/400/280",
+      bgColor: "bg-gray-800",
+      downloadable: true,
+      downloadLink: "/downloads/spendwise.apk"
     },
-    
-  ];
-
-  const skillProjects = [
     {
       id: 4,
-      title: "EventPark",
-      description: "Eventpark is a simple event management and ticket booking system developed as part of a university web programming module. It allows users to browse upcoming events, book tickets online, and manage their reservations easily, while providing organizers with tools to create and manage events efficiently.",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
-      technologies: ["React.js","Laravel"],
-      category: "Web Application",
-      status: "Completed",
-      skillLevel: "Beginner",
-      duration: "4 months",
-      highlights: ["List Events", "Browse Events", "Book Event"],
-      links: {
-        demo: "#",
-        github: "#"
-      }
+      title: "APPLE",
+      category: "CONVERSATIONAL AI",
+      image: "/api/placeholder/400/280",
+      bgColor: "bg-gray-900",
+      hasLogo: true
     },
-    // {
-    //   id: 5,
-    //   title: "Cryptocurrency Tracker",
-    //   description: "Real-time crypto price tracking with portfolio management and price alerts.",
-    //   image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&h=400&fit=crop",
-    //   technologies: ["React", "Chart.js", "WebSocket", "API"],
-    //   category: "Data Visualization",
-    //   status: "Completed",
-    //   skillLevel: "Intermediate",
-    //   duration: "3 weeks",
-    //   highlights: ["Real-time Data", "Interactive Charts", "Price Alerts"],
-    //   links: {
-    //     demo: "#",
-    //     github: "#"
-    //   }
-    // },
-    // {
-    //   id: 6,
-    //   title: "3D Portfolio Website",
-    //   description: "Interactive 3D portfolio with Three.js animations and smooth transitions.",
-    //   image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop",
-    //   technologies: ["Three.js", "GSAP", "React", "WebGL"],
-    //   category: "3D Graphics",
-    //   status: "Completed",
-    //   skillLevel: "Advanced",
-    //   duration: "1 month",
-    //   highlights: ["3D Animations", "WebGL Shaders", "Interactive UI"],
-    //   links: {
-    //     demo: "#",
-    //     github: "#"
-    //   }
-    // }
+    {
+      id: 5,
+      title: "MUSIC APP",
+      category: "MOBILE APPLICATION",
+      image: "/api/placeholder/400/400",
+      bgColor: "bg-gray-100"
+    }
   ];
 
-  const ProjectCard = ({ project, type }) => (
-    <div className="group relative bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-gray-600/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/10">
-      {/* Image Section */}
-      <div className="relative h-48 overflow-hidden">
-        <img 
-          src={project.image} 
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
-        
-        {/* Status Badge */}
-        <div className="absolute top-4 right-4">
-          <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-            project.status === 'Live' ? 'bg-green-500/20 text-green-400 border border-green-500/30' :
-            project.status === 'Completed' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' :
-            'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
-          }`}>
-            {project.status}
-          </span>
-        </div>
-
-        {/* Overlay Links */}
-        <div className="absolute inset-0 bg-gray-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-          {project.links.live && (
-            <a href={project.links.live} target='_blank' rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg text-white text-sm font-medium transition-colors duration-200">
-              <Globe className="w-4 h-4" />
-              Live Demo
-            </a>
-          )}
-          {project.links.demo && (
-            <a href={project.links.demo} target='_blank' rel="noreferrer" className="flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 rounded-lg text-white text-sm font-medium transition-colors duration-200">
-              <Eye className="w-4 h-4" />
-              View Demo
-            </a>
-          )}
-          {project.links.github && (
-            <a href={project.links.github} className="flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white text-sm font-medium transition-colors duration-200">
-              <Github className="w-4 h-4" />
-              More
-            </a>
-          )}
-        </div>
-      </div>
-
-      {/* Content Section */}
-      <div className="p-6">
-        <div className="flex items-start justify-between mb-3">
-          <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
-            {project.title}
-          </h3>
-          <span className="text-xs text-gray-400 bg-gray-800/50 px-2 py-1 rounded">
-            {project.category}
-          </span>
-        </div>
-
-        <p className="text-gray-400 text-sm mb-4 leading-relaxed">
-          {project.description}
-        </p>
-
-        {/* Technologies */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.technologies.map((tech, index) => (
-            <span 
-              key={index}
-              className="px-2 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded text-xs font-medium"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        {/* Project Stats */}
-        <div className="flex items-center gap-4 mb-4 text-xs text-gray-400">
-          <div className="flex items-center gap-1">
-            <Calendar className="w-3 h-3" />
-            {project.duration}
-          </div>
-          {type === 'real-world' && project.users && (
-            <div className="flex items-center gap-1">
-              <Users className="w-3 h-3" />
-              {project.users} users
-            </div>
-          )}
-          {type === 'skill' && project.skillLevel && (
-            <div className="flex items-center gap-1">
-              <Target className="w-3 h-3" />
-              {project.skillLevel}
-            </div>
-          )}
-        </div>
-
-        {/* Highlights */}
-        <div className="space-y-2">
-          <h4 className="text-sm font-medium text-gray-300">Key Features:</h4>
-          <div className="flex flex-wrap gap-1">
-            {project.highlights.map((highlight, index) => (
-              <span 
-                key={index}
-                className="text-xs text-gray-300 bg-gray-800/30 px-2 py-1 rounded border border-gray-700/30"
-              >
-                {highlight}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
   return (
-    <div className="min-h-screen  py-16 relative z-0 overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-purple-400/10 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        {/* Header Section */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="flex items-center justify-center mb-6">
-            <div className="w-3 h-3 bg-gradient-to-r from-purple-400 to-red-500 rounded-full mr-4 animate-ping"></div>
-            <span className="text-gray-400 uppercase text-sm tracking-[0.2em] font-medium">
-              Featured Work
-            </span>
-          </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            <span className="bg-gradient-to-r from-purple-400 via-purple-200 to-white bg-clip-text text-transparent">
-              My Projects
-            </span>
+    <section className="bg-[#111111] min-h-screen p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-12">
+          <h2 className="text-4xl md:text-6xl font-light text-white mb-4">
+            PROJECTS
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
-            Explore my journey through real-world applications and skill-building experiments that showcase growth and innovation
+          <p className="text-gray-400 text-lg">
+            A collection of selected work and experiments
           </p>
         </div>
 
-        {/* Tab Navigation */}
-        <div className={`flex justify-center mb-12 transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="flex bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-2">
-            <button
-              onClick={() => setActiveTab('real-world')}
-              className={`flex items-center gap-3 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                activeTab === 'real-world'
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
-                  : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
-              }`}
-            >
-              <Briefcase className="w-5 h-5" />
-              Real World Projects
-            </button>
-            <button
-              onClick={() => setActiveTab('skill-dev')}
-              className={`flex items-center gap-3 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                activeTab === 'skill-dev'
-                  ? 'bg-gradient-to-r from-purple-500 to-pink-600 text-white shadow-lg'
-                  : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
-              }`}
-            >
-              <GraduationCap className="w-5 h-5" />
-              Skill Development
-            </button>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+          {/* Project 1 - CarPool */}
+          <div className="bg-[#111111] overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col">
+            {/* Status Badge */}
+            {projects[0].status && (
+              <div className="absolute top-4 right-4 z-10">
+                <span className="bg-indigo-600/20 text-indigo-300 backdrop-blur px-3 py-1 rounded-full text-[10px] tracking-wider font-semibold border border-indigo-500/30">
+                  {projects[0].status.toUpperCase()}
+                </span>
+              </div>
+            )}
+            {/* Image / Preview */}
+            <div className="relative h-44 bg-gray-800 flex items-center justify-center overflow-hidden">
+              <img
+                src={projects[0].image}
+                alt={projects[0].title}
+                className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+            </div>
+            {/* Content */}
+            <div className="p-5 flex flex-col gap-4 flex-1">
+              <div>
+                <h3 className="text-white font-semibold text-lg tracking-tight flex items-center gap-2">
+                  {projects[0].title}
+                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-gray-800 text-gray-400 border border-gray-700">
+                    {projects[0].category}
+                  </span>
+                </h3>
+                <p className="text-gray-400 text-sm mt-2 leading-relaxed">
+                  {projects[0].description}
+                </p>
+              </div>
+              {/* Tech stack badges */}
+              {projects[0].technologies && (
+                <div className="flex flex-wrap gap-2">
+                  {projects[0].technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-[10px] uppercase tracking-wide bg-gray-800/70 border border-gray-700 text-gray-300 px-2 py-1 rounded-md hover:bg-gray-700/60 transition-colors"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
+              {/* Highlights */}
+              {projects[0].highlights && (
+                <div className="flex flex-wrap gap-2">
+                  {projects[0].highlights.map((h) => (
+                    <span key={h} className="text-[10px] bg-indigo-500/10 text-indigo-300 border border-indigo-400/20 px-2 py-1 rounded-md">
+                      {h}
+                    </span>
+                  ))}
+                </div>
+              )}
+              {/* Meta Info */}
+              <div className="flex flex-wrap gap-4 text-xs text-gray-500 mt-auto">
+                {projects[0].users && <div><span className="text-gray-400">Users:</span> {projects[0].users}</div>}
+                {projects[0].duration && <div><span className="text-gray-400">Duration:</span> {projects[0].duration}</div>}
+              </div>
+              {/* Actions */}
+              <div className="flex items-center justify-between pt-2">
+                <button
+                  disabled={!projects[0].links?.live}
+                  className={`text-xs font-medium px-3 py-2 rounded-md border transition-colors ${projects[0].links?.live ? 'border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/10' : 'border-gray-700 text-gray-500 cursor-not-allowed'}`}
+                >
+                  {projects[0].links?.live ? 'LIVE DEMO' : 'COMING SOON'}
+                </button>
+                {projects[0].links?.github && (
+                  <a
+                    href={projects[0].links.github}
+                    className="text-xs font-medium px-3 py-2 rounded-md border border-gray-700 text-gray-300 hover:bg-gray-800/70 transition-colors"
+                  >
+                    GITHUB →
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Project 2 - KimbulaGO with Lottie animation (independent sizing) */}
+          <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col">
+            {/* Responsive video-like container retains its own aspect so cards can vary in height */}
+            <div className="relative w-full aspect-[16/9] sm:aspect-[9/16] md:aspect-[16/10] bg-gray-800 flex items-center justify-center">
+              <div className="relative w-full h-full flex items-center justify-center">
+                <Lottie
+                  src="https://cdn.lottielab.com/l/AacwDyqM9Vubx9.json"
+                  autoplay
+                  loop
+                  className="w-[100%] md:w-[100%] h-auto"
+                  fallback={<span className="text-[10px] text-gray-400">Animation unavailable</span>}
+                />
+                <div className="absolute inset-0 pointer-events-none ring-1 ring-white/5" />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-950/70 via-transparent opacity-40 group-hover:opacity-70 transition-opacity" />
+            </div>
+            <div className="p-5 flex flex-col gap-3">
+              <h3 className="text-white font-semibold text-lg tracking-tight">{projects[1].title}</h3>
+              <p className="text-gray-400 text-xs uppercase tracking-wider">{projects[1].category}</p>
+              <div className="mt-2 flex items-center justify-between">
+                {projects[0].links?.github && (
+                  <a
+                    href={projects[0].links.github}
+                    className="text-xs font-medium px-3 py-2 rounded-md border border-gray-700 text-gray-300 hover:bg-gray-800/70 transition-colors"
+                  >
+                    GITHUB →
+                  </a>
+                )}
+                <button className="text-xs font-medium px-3 py-2 rounded-md border border-indigo-500/40 text-indigo-300 hover:bg-indigo-500/10 transition-colors">
+                  More →
+                </button>
+              </div>
+            </div>
+            
+          </div>
+
+          {/* Project 3 - SpendWise with Lottie animation */}
+          <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col">
+            <div className="relative w-full aspect-[16/9] bg-gray-800 flex items-center justify-center">
+              <div className="relative w-full h-full flex items-center justify-center">
+                <Lottie
+                  src="https://cdn.lottielab.com/l/Cz3oUBxpVndpXq.json"
+                  autoplay
+                  loop
+                  className="w-[70%] md:w-[55%] h-auto"
+                  fallback={<span className="text-[10px] text-gray-400">Animation unavailable</span>}
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-950/70 via-transparent opacity-40 group-hover:opacity-70 transition-opacity" />
+            </div>
+            <div className="p-5 flex flex-col gap-3">
+              <h3 className="text-white font-semibold text-lg tracking-tight">{projects[2].title}</h3>
+              <p className="text-gray-400 text-xs uppercase tracking-wider">{projects[2].category}</p>
+              <div className="mt-2 flex items-center justify-between">
+                {projects[2].downloadable && (
+                  <a
+                    href={projects[2].downloadLink}
+                    className="text-xs font-medium px-3 py-2 rounded-md border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/10 transition-colors"
+                  >
+                    Download
+                  </a>
+                )}
+                <button className="text-xs font-medium px-3 py-2 rounded-md border border-indigo-500/40 text-indigo-300 hover:bg-indigo-500/10 transition-colors">
+                  More →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Project 4 - APPLE with live website preview */}
+          <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col lg:col-span-2">
+            <WebsitePreview url="https://nalaka.netlify.app/" title="APPLE Live Preview" className="rounded-none" />
+            
+          </div>
+
+          {/* Project 5 - MUSIC APP */}
+          <div className="bg-[#111111] rounded-lg overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+            <div className="p-6 h-48 bg-gray-800 flex items-center justify-center">
+              <div className="w-20 h-20 border-4 border-white rounded-full flex items-center justify-center">
+                <div className="w-3 h-3 bg-white rounded-full"></div>
+              </div>
+            </div>
+            <div className="p-6">
+              <h3 className="text-white font-bold text-lg mb-1">MUSIC APP</h3>
+              <p className="text-gray-400 text-sm uppercase tracking-wider">MOBILE APPLICATION</p>
+            </div>
           </div>
         </div>
 
-        {/* Project Grid */}
-        <div className={`transition-all duration-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          {activeTab === 'real-world' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {realWorldProjects.map((project, index) => (
-                <div
-                  key={project.id}
-                  className="animate-fade-in-up"
-                  style={{ animationDelay: `${index * 200}ms` }}
-                >
-                  <ProjectCard project={project} type="real-world" />
-                </div>
-              ))}
-            </div>
-          )}
-
-          {activeTab === 'skill-dev' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {skillProjects.map((project, index) => (
-                <div
-                  key={project.id}
-                  className="animate-fade-in-up"
-                  style={{ animationDelay: `${index * 200}ms` }}
-                >
-                  <ProjectCard project={project} type="skill" />
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* Call to Action */}
-        <div className={`text-center mt-16 transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <button className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-2xl text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25">
-            <span>View All Projects</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
-        </div>
+        {/* Bottom call-to-action removed per request */}
       </div>
-
-      <style jsx>{`
-        @keyframes fade-in-up {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .animate-fade-in-up {
-          animation: fade-in-up 0.8s ease-out forwards;
-          opacity: 0;
-        }
-      `}</style>
-    </div>
+    </section>
   );
-}
+};
 
-export default ProjectSection;
+export default PortfolioProjects;
