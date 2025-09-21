@@ -73,18 +73,18 @@ const PortfolioProjects = () => {
   ];
 
   return (
-    <section className="bg-[#111111] min-h-screen p-8">
+  <section className="bg-[#111111] min-h-screen p-4 sm:p-6 md:p-8">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12">
-          <h2 className="text-4xl md:text-6xl font-light text-white mb-4">
+        <div className="mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-6xl font-light text-white mb-3 md:mb-4">
             PROJECTS
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 text-base md:text-lg">
             A collection of selected work and experiments
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-fr">
           {/* Project 1 - CarPool */}
           <div className="bg-[#111111] overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col">
             {/* Status Badge */}
@@ -96,7 +96,7 @@ const PortfolioProjects = () => {
               </div>
             )}
             {/* Image / Preview */}
-            <div className="relative h-44 bg-gray-800 flex items-center justify-center overflow-hidden">
+            <div className="relative bg-gray-800 flex items-center justify-center overflow-hidden py-6 md:h-44 md:py-0">
               <img
                 src={projects[0].image}
                 alt={projects[0].title}
@@ -105,7 +105,7 @@ const PortfolioProjects = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
             </div>
             {/* Content */}
-            <div className="p-5 flex flex-col gap-4 flex-1">
+            <div className="p-4 md:p-5 flex flex-col gap-3 md:gap-4 flex-1">
               <div>
                 <h3 className="text-white font-semibold text-lg tracking-tight flex items-center gap-2">
                   {projects[0].title}
@@ -140,13 +140,13 @@ const PortfolioProjects = () => {
                   ))}
                 </div>
               )}
-              {/* Meta Info */}
-              <div className="flex flex-wrap gap-4 text-xs text-gray-500 mt-auto">
+              {/* Meta Info (hidden on mobile to reduce vertical space) */}
+              <div className="hidden md:flex flex-wrap gap-4 text-xs text-gray-500">
                 {projects[0].users && <div><span className="text-gray-400">Users:</span> {projects[0].users}</div>}
                 {projects[0].duration && <div><span className="text-gray-400">Duration:</span> {projects[0].duration}</div>}
               </div>
               {/* Actions */}
-              <div className="flex items-center justify-between pt-2">
+              <div className="flex items-center justify-between pt-2 mt-auto">
                 <button
                   disabled={!projects[0].links?.live}
                   className={`text-xs font-medium px-3 py-2 rounded-md border transition-colors ${projects[0].links?.live ? 'border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/10' : 'border-gray-700 text-gray-500 cursor-not-allowed'}`}
@@ -167,8 +167,8 @@ const PortfolioProjects = () => {
 
           {/* Project 2 - KimbulaGO with Lottie animation (independent sizing) */}
           <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col">
-            {/* Responsive video-like container retains its own aspect so cards can vary in height */}
-            <div className="relative w-full aspect-[16/9] sm:aspect-[9/16] md:aspect-[16/10] bg-gray-800 flex items-center justify-center">
+            {/* Mobile: content-fit height; md+: use aspect to normalize */}
+            <div className="relative w-full bg-gray-800 flex items-center justify-center py-8 md:py-0 md:aspect-[16/10]">
               <div className="relative w-full h-full flex items-center justify-center">
                 <Lottie
                   src="https://cdn.lottielab.com/l/AacwDyqM9Vubx9.json"
@@ -181,7 +181,7 @@ const PortfolioProjects = () => {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-gray-950/70 via-transparent opacity-40 group-hover:opacity-70 transition-opacity" />
             </div>
-            <div className="p-5 flex flex-col gap-3">
+            <div className="p-4 md:p-5 flex flex-col gap-2 md:gap-3">
               <h3 className="text-white font-semibold text-lg tracking-tight">{projects[1].title}</h3>
               <p className="text-gray-400 text-xs uppercase tracking-wider">{projects[1].category}</p>
               <div className="mt-2 flex items-center justify-between">
@@ -202,10 +202,10 @@ const PortfolioProjects = () => {
           </div>
 
           {/* Third column: SpendWise + Ballerina Module stacked */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4 md:gap-6">
             {/* SpendWise (existing project 3) */}
             <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col">
-              <div className="relative w-full aspect-[16/9] bg-gray-800 flex items-center justify-center">
+              <div className="relative w-full bg-gray-800 flex items-center justify-center py-8 md:py-0 md:aspect-[16/9]">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <Lottie
                     src="https://cdn.lottielab.com/l/Cz3oUBxpVndpXq.json"
@@ -217,7 +217,7 @@ const PortfolioProjects = () => {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-950/70 via-transparent opacity-40 group-hover:opacity-70 transition-opacity" />
               </div>
-              <div className="p-5 flex flex-col gap-3">
+              <div className="p-4 md:p-5 flex flex-col gap-2 md:gap-3">
                 <h3 className="text-white font-semibold text-lg tracking-tight">{projects[2].title}</h3>
                 <div className="mt-2 flex items-center justify-between">
                   {projects[2].downloadable && (
@@ -235,7 +235,7 @@ const PortfolioProjects = () => {
               </div>
             </div>
             {/* Ballerina Firebase Module (project 6) */}
-            <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col p-5 gap-4">
+            <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col p-4 md:p-5 gap-3 md:gap-4">
               <div className="flex items-start gap-3">
                 <img src={projects[5].image} alt={projects[5].title} className="w-20 h-20 object-cover rounded-md border border-gray-700" />
                 <div className="flex-1">
@@ -283,12 +283,12 @@ const PortfolioProjects = () => {
 
           {/* Project 5 - MUSIC APP */}
           <div className="bg-[#111111] rounded-lg overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
-            <div className="p-6 h-48 bg-gray-800 flex items-center justify-center">
+            <div className="p-5 md:p-6 bg-gray-800 flex items-center justify-center py-8 md:h-48 md:py-0">
               <div className="w-20 h-20 border-4 border-white rounded-full flex items-center justify-center">
                 <div className="w-3 h-3 bg-white rounded-full"></div>
               </div>
             </div>
-            <div className="p-6">
+            <div className="p-5 md:p-6">
               <h3 className="text-white font-bold text-lg mb-1">MUSIC APP</h3>
               <p className="text-gray-400 text-sm uppercase tracking-wider">MOBILE APPLICATION</p>
             </div>
