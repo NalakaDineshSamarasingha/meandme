@@ -53,6 +53,23 @@ const PortfolioProjects = () => {
       image: "/api/placeholder/400/400",
       bgColor: "bg-gray-100"
     }
+    ,{
+      id: 6,
+      title: "Ballerina Firebase Module",
+      description: "Ballerina Module for accessing firebase firestore database.",
+      image: "/assets/3.jpg",
+      technologies: ["Ballerina"],
+      category: "Package",
+      status: "Live",
+      users: "",
+      duration: "1.0.0",
+      highlights: ["Ballerina Package"],
+      links: {
+        live: "https://central.ballerina.io/nalaka/firestore/1.0.0",
+        github: "https://github.com/NalakaDineshSamarasingha/nalaka-firestore"
+      },
+      bgColor: "bg-gray-800"
+    }
   ];
 
   return (
@@ -184,43 +201,84 @@ const PortfolioProjects = () => {
             
           </div>
 
-          {/* Project 3 - SpendWise with Lottie animation */}
-          <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col">
-            <div className="relative w-full aspect-[16/9] bg-gray-800 flex items-center justify-center">
-              <div className="relative w-full h-full flex items-center justify-center">
-                <Lottie
-                  src="https://cdn.lottielab.com/l/Cz3oUBxpVndpXq.json"
-                  autoplay
-                  loop
-                  className="w-[70%] md:w-[55%] h-auto"
-                  fallback={<span className="text-[10px] text-gray-400">Animation unavailable</span>}
-                />
+          {/* Third column: SpendWise + Ballerina Module stacked */}
+          <div className="flex flex-col gap-6">
+            {/* SpendWise (existing project 3) */}
+            <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col">
+              <div className="relative w-full aspect-[16/9] bg-gray-800 flex items-center justify-center">
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <Lottie
+                    src="https://cdn.lottielab.com/l/Cz3oUBxpVndpXq.json"
+                    autoplay
+                    loop
+                    className="w-[70%] md:w-[55%] h-auto"
+                    fallback={<span className="text-[10px] text-gray-400">Animation unavailable</span>}
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-950/70 via-transparent opacity-40 group-hover:opacity-70 transition-opacity" />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-950/70 via-transparent opacity-40 group-hover:opacity-70 transition-opacity" />
+              <div className="p-5 flex flex-col gap-3">
+                <h3 className="text-white font-semibold text-lg tracking-tight">{projects[2].title}</h3>
+                <div className="mt-2 flex items-center justify-between">
+                  {projects[2].downloadable && (
+                    <a
+                      href={projects[2].downloadLink}
+                      className="text-xs font-medium px-3 py-2 rounded-md border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/10 transition-colors"
+                    >
+                      Download
+                    </a>
+                  )}
+                  <button className="text-xs font-medium px-3 py-2 rounded-md border border-indigo-500/40 text-indigo-300 hover:bg-indigo-500/10 transition-colors">
+                    More →
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="p-5 flex flex-col gap-3">
-              <h3 className="text-white font-semibold text-lg tracking-tight">{projects[2].title}</h3>
-              <p className="text-gray-400 text-xs uppercase tracking-wider">{projects[2].category}</p>
-              <div className="mt-2 flex items-center justify-between">
-                {projects[2].downloadable && (
+            {/* Ballerina Firebase Module (project 6) */}
+            <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col p-5 gap-4">
+              <div className="flex items-start gap-3">
+                <img src={projects[5].image} alt={projects[5].title} className="w-20 h-20 object-cover rounded-md border border-gray-700" />
+                <div className="flex-1">
+                  <h3 className="text-white font-semibold text-lg tracking-tight flex items-center gap-2">
+                    {projects[5].title}
+                    <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-gray-800 text-gray-400 border border-gray-700">
+                      {projects[5].category}
+                    </span>
+                  </h3>
+                 
+                </div>
+              </div>
+             
+              
+              
+              <div className="flex items-center justify-between pt-2">
+                <a
+                  href={projects[5].links?.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-medium px-3 py-2 rounded-md border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/10 transition-colors"
+                >
+                  Package Page ↗
+                </a>
+                {projects[5].links?.github && (
                   <a
-                    href={projects[2].downloadLink}
-                    className="text-xs font-medium px-3 py-2 rounded-md border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/10 transition-colors"
+                    href={projects[5].links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-medium px-3 py-2 rounded-md border border-gray-700 text-gray-300 hover:bg-gray-800/70 transition-colors"
                   >
-                    Download
+                    GITHUB →
                   </a>
                 )}
-                <button className="text-xs font-medium px-3 py-2 rounded-md border border-indigo-500/40 text-indigo-300 hover:bg-indigo-500/10 transition-colors">
-                  More →
-                </button>
               </div>
             </div>
           </div>
 
-          {/* Project 4 - APPLE with live website preview */}
-          <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col lg:col-span-2">
-            <WebsitePreview url="https://nalaka.netlify.app/" title="APPLE Live Preview" className="rounded-none" />
-            
+          {/* Project 4 - APPLE with live website preview (moved to next row) */}
+          <div className="bg-[#111111] rounded-xl overflow-hidden group border border-gray-800 hover:border-gray-700 transition-all duration-300 relative flex flex-col lg:col-span-2 h-screen md:h-auto min-h-screen md:min-h-0">
+            <div className="flex-1 flex">
+              <WebsitePreview url="https://nalaka.netlify.app/" title="APPLE Live Preview" className="rounded-none flex-1" />
+            </div>
           </div>
 
           {/* Project 5 - MUSIC APP */}
