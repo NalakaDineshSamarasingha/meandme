@@ -1,47 +1,16 @@
-/* src/tailwind.css */
+/* Tailwind layer directives (processed at build time) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
-
-
-body, html, #root {
-  margin: 0;
-  padding: 0;
-  background: #000;
+html {
+  scroll-behavior: smooth;
 }
 
-#root > div {
-  position: relative;
-  z-index: 1;
-}
-@keyframes lightningEffect {
-  0% {
-    text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 215, 0, 0.3), 0 0 10px rgba(0, 0, 255, 0.2);
-  }
-  25% {
-    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 215, 0, 0.5), 0 0 15px rgba(0, 0, 255, 0.4);
-  }
-  50% {
-    text-shadow: 2px 2px 15px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 215, 0, 0.7), 0 0 20px rgba(0, 0, 255, 0.5);
-  }
-  75% {
-    text-shadow: 2px 2px 12px rgba(255, 255, 255, 0.9), 0 0 35px rgba(255, 215, 0, 0.6), 0 0 18px rgba(0, 0, 255, 0.4);
-  }
-  100% {
-    text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 215, 0, 0.3), 0 0 10px rgba(0, 0, 255, 0.2);
-  }
+body {
+  background-color: #111111;
+   font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-.text-shadow {
-  text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 215, 0, 0.3), 0 0 10px rgba(0, 0, 255, 0.2);
-}
-
-.animate-lightning {
-  animation: lightningEffect 2s ease-out forwards;
-}
-
-/* Gold color for 'stories' text */
-.text-gold {
-  color: #f2f2f2cc;
-}

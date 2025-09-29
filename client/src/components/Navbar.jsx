@@ -1,87 +1,26 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import Arrow from './Arrow';
+import React from 'react';
 
-function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
+export default function Navbar() {
   return (
-    <div className="text-[#f2f2f2e6] bg-[#101010b3] fixed top-0 left-0 w-full z-50">
-      {/* Navbar Container */}
-      <div className="flex justify-between items-center py-6 px-6 sm:py-8 sm:px-16">
-        {/* Left Section */}
-        <Link to='/'>
-          <div className="text-left sm:text-left">
-            <p className="text-base sm:text-lg font-semibold">Nalaka Dinesh</p>
-            <p className="text-xs sm:text-sm opacity-70">Software Eng.</p>
+    <div className="fixed top-0 inset-x-0 z-40 bg-[#111111]/92 backdrop-blur supports-[backdrop-filter]:bg-[#111111]/72 border-b border-white/10">
+      <div className="mx-auto w-full max-w-[1500px] px-6 md:px-3">
+        <div className="py-4 grid grid-cols-1 md:grid-cols-[6fr_2fr_4fr] items-center">
+          {/* Name / Identity */}
+          <div className="flex items-center">
+            <a href="#about" className="text-sm md:text-sm font-medium tracking-tight text-zinc-100transition-colors">Nalaka Dinesh</a>
           </div>
-        </Link>
-
-        {/* Menu Icon for Mobile */}
-        <div className="sm:hidden">
-          <button onClick={toggleMenu} className="text-2xl">
-            {isMenuOpen ? <FaTimes /> : <FaBars />}
-          </button>
-        </div>
-
-        {/* Right Section (Desktop) */}
-        <div className="hidden sm:flex gap-8 font-medium text-base">
-          <div className="flex items-center py-2 px-4 hover:bg-slate-800 transition duration-300 rounded-full">
-            <p>
-              <a
-                href="https://www.linkedin.com/in/nalaka-dinesh-b53173271/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn
-              </a>
-            </p>
-            <Arrow />
+          {/* Role */}
+          <div className="hidden md:flex items-center ">
+            <span className="text-[13px] font-medium text-zinc-200 tracking-tight whitespace-nowrap">Software Engineer</span>
           </div>
-          <div className="flex items-center py-2 px-4 hover:bg-slate-800 transition duration-300 rounded-full">
-            <a href='/cv'>
-              <p>Resume</p>
-            </a>
-              <Arrow />
-          </div>
-          <div className="flex items-center py-2 px-4 hover:bg-slate-800 transition duration-300 rounded-full">
-            <p>
-              <Link to='/info'>Area51</Link>
-            </p>
-            <Arrow />
+          {/* Location */}
+          <div className="flex items-center md:start mt-4 md:mt-0">
+            <span className="text-[13px] font-medium text-zinc-200 tracking-tight whitespace-nowrap">Colombo, SL</span>
           </div>
         </div>
-      </div>
-
-      {/* Mobile Menu (Dropdown) */}
-      <div
-        className={`sm:hidden bg-[#101010] text-[#f2f2f2e6] flex flex-col gap-4 px-6 py-4 
-        ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}
-        overflow-hidden transition-all duration-500 ease-in-out`}
-      >
-        <div className="py-2 px-4 hover:bg-slate-800 transition duration-300 rounded-md">
-          <a
-            href="https://www.linkedin.com/in/nalaka-dinesh-b53173271/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn
-          </a>
-        </div>
-        <div className="py-2 px-4 hover:bg-slate-800 transition duration-300 rounded-md">
-          <Link to='/cv'>Resume</Link>
-        </div>
-        <div className="py-2 px-4 hover:bg-slate-800 transition duration-300 rounded-md">
-          <Link to='/info'>Area51</Link>
-        </div>
+        <div className="h-px w-full bg-zinc-800" />
       </div>
     </div>
   );
 }
 
-export default Navbar;
