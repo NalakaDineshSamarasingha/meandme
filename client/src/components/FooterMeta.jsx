@@ -11,11 +11,11 @@ export default function FooterMeta() {
   const lastUpdated = formatDate(new Date()); // Replace with build/commit date if desired
 
   const socials = [
-    { label: 'Reading', href: '#' },
-    { label: 'Journal', href: '#' },
-    { label: 'Linkedin', href: 'https://www.linkedin.com' },
-    { label: 'Instagram', href: 'https://www.instagram.com' },
-    { label: 'Twitter', href: 'https://x.com' }
+    { label: 'Reading', href: 'https://medium.com/@nalakadinesh97' },
+    { label: 'Code', href: 'https://github.com/NalakaDineshSamarasingha' },
+    { label: 'Linkedin', href: 'https://www.linkedin.com/in/nalaka-dinesh-b53173271/' },
+    // { label: 'Instagram', href: 'https://www.instagram.com' },
+    // { label: 'Twitter', href: 'https://x.com' }
   ];
 
   const metaTokens = [
