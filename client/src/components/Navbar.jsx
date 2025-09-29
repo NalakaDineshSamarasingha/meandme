@@ -7,7 +7,7 @@ export default function Navbar() {
         <div className="py-4 grid grid-cols-1 gap-y-2 md:gap-y-0 md:grid-cols-[6fr_2fr_4fr] items-center">
           {/* Left: Identity + Role (mobile stacked) */}
           <div className="flex flex-col md:flex-row md:items-center md:space-x-0">
-            <a href="#about" className="text-sm font-medium tracking-tight text-zinc-100 transition-colors hover:text-white">Nalaka Dinesh</a>
+            <a href="/" className="text-sm font-medium tracking-tight text-zinc-100 transition-colors hover:text-white">Nalaka Dinesh</a>
             <span className="mt-1 md:mt-0 md:hidden text-[12px] font-medium text-zinc-400 tracking-tight">Software Engineer</span>
           </div>
           {/* Middle: Role (desktop) */}
@@ -16,7 +16,7 @@ export default function Navbar() {
             </div>
           {/* Right: Location (mobile inline below) */}
           <div className="flex items-center">
-            <span className="text-[12px] md:text-[13px] font-medium text-zinc-300 tracking-tight whitespace-nowrap">Colombo, SL</span>
+            <span className="text-[12px] md:text-[13px] font-medium text-zinc-300 tracking-tight whitespace-nowrap">Resume</span>
           </div>
         </div>
         <div className="h-px w-full bg-zinc-800" />
