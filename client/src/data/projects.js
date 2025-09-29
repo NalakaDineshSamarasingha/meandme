@@ -10,18 +10,36 @@ export const projects = [
     tags: ['Media', 'Community'],
     media: '/Assets/3.jpg',
     aspect: 'aspect-[16/7]',
-    locked: true
+    locked: true,
+     desc:'For the past two years, I’ve struggled with managing my personal finances effectively. Each month, I faced budget shortages, and while I tried several financial management apps, none of them fully matched my requirements.',
+    desc2:'This challenge inspired me to start building my own finance management application. My goal is to not just solve my own problem but also address the gaps I noticed in existing solutions',
+    role:'Full Stack Engineer',
+    collab:[""] ,
+    github:'https://github.com/NalakaDineshSamarasingha/SpendWise-frontend',
+        downlod:'https://github.com/NalakaDineshSamarasingha/SpendWise-frontend/releases/tag/v1.0.1',
+         context:['I started this project after facing recurring budget shortages for nearly two years. Despite trying several financial management apps, none aligned with my real needs — especially around collaboration and debt tracking.','The app focuses on unique features such as collaboration, where two or more people can manage a single account, and debt management, giving clear visibility into both what I owe and what others owe me. It also includes trip planning, allowing groups to budget and split expenses efficiently, and saving goals with progress tracking. Alongside these, the app covers all the essential features like income and expense tracking, categorization, reminders, and reporting.','During development, I explored challenges like ensuring real-time synchronization between multiple users, maintaining simplicity while handling complex cases, and implementing secure data sharing. Through prototyping, I refined debt ledger models, collaborative flows, and savings visualization. The result is an app tailored not just for individual finance but also for group-oriented financial scenarios, bridging a gap I found in existing solutions.']
   },
   {
     slug: 'spendwise',
     title: 'SpendWise',
     client: 'spendwise',
     category: 'financial management app',
-    year: '2025',
+    year: 'Present',
     summary: 'Lightweight dashboard & asset workflow primitives enabling faster content pipeline iteration.',
     tags: ['Tooling', 'Dashboard'],
     media: '/Assets/spendwise.png',
-    aspect: 'aspect-[4/3]'
+    aspect: 'aspect-[4/3]',
+    desc:'For the past two years, I’ve struggled with managing my personal finances effectively. Each month, I faced budget shortages, and while I tried several financial management apps, none of them fully matched my requirements.',
+    desc2:'This challenge inspired me to start building my own finance management application. My goal is to not just solve my own problem but also address the gaps I noticed in existing solutions',
+        role:'Full Stack Engineer',
+        collab:["Muditha Lakmali"],
+        technology:['React Native','NodeJs','ExpressJs','MongoDB','Google O Auth','Render.com'],
+        github:'https://github.com/NalakaDineshSamarasingha/SpendWise-frontend',
+        downlod:'https://github.com/NalakaDineshSamarasingha/SpendWise-frontend/releases/tag/v1.0.1',
+        feature_video: [
+  { src: "/Assets/spendwise_das.mp4",title: "Smart Dashboard",  description: "Dashboard overview with real-time expense tracking" }
+],
+        context:['I started this project after facing recurring budget shortages for nearly two years. Despite trying several financial management apps, none aligned with my real needs — especially around collaboration and debt tracking.','The app focuses on unique features such as collaboration, where two or more people can manage a single account, and debt management, giving clear visibility into both what I owe and what others owe me. It also includes trip planning, allowing groups to budget and split expenses efficiently, and saving goals with progress tracking.','During development, I explored challenges like ensuring real-time synchronization between multiple users, maintaining simplicity while handling complex cases, and implementing secure data sharing. Through prototyping, I refined debt ledger models, collaborative flows, and savings visualization.']
   },
   {
     slug: 'KimbulaGO',
@@ -32,7 +50,14 @@ export const projects = [
     summary: 'Explorations in natural language + visual grounding flows for rapid information recall.',
     tags: ['AI', 'Search'],
     media: '/Assets/kimbula.mp4',
-    aspect: 'aspect-[3/4]'
+    aspect: 'aspect-[3/4]',
+     desc:'For the past two years, I’ve struggled with managing my personal finances effectively. Each month, I faced budget shortages, and while I tried several financial management apps, none of them fully matched my requirements.',
+    desc2:'This challenge inspired me to start building my own finance management application. My goal is to not just solve my own problem but also address the gaps I noticed in existing solutions',
+        role:'Full Stack Engineer',
+        collab:[""],
+         github:'https://github.com/NalakaDineshSamarasingha/SpendWise-frontend',
+        downlod:'https://github.com/NalakaDineshSamarasingha/SpendWise-frontend/releases/tag/v1.0.1',
+         context:['I started this project after facing recurring budget shortages for nearly two years. Despite trying several financial management apps, none aligned with my real needs — especially around collaboration and debt tracking. This gap inspired me to design and develop my own solution that not only manages personal finance but also enables shared financial management.','The app focuses on unique features such as collaboration, where two or more people can manage a single account, and debt management, giving clear visibility into both what I owe and what others owe me. It also includes trip planning, allowing groups to budget and split expenses efficiently, and saving goals with progress tracking. Alongside these, the app covers all the essential features like income and expense tracking, categorization, reminders, and reporting.','During development, I explored challenges like ensuring real-time synchronization between multiple users, maintaining simplicity while handling complex cases, and implementing secure data sharing. Through prototyping, I refined debt ledger models, collaborative flows, and savings visualization. The result is an app tailored not just for individual finance but also for group-oriented financial scenarios, bridging a gap I found in existing solutions.']
   },
   {
     slug: 'Carpool',
@@ -41,7 +66,14 @@ export const projects = [
     category: 'Ride sharing app',
     year: '2021',
     media: '/Assets/Project.mp4',
-    aspect: 'aspect-[16/9]'
+    aspect: 'aspect-[16/9]',
+     desc:'For the past two years, I’ve struggled with managing my personal finances effectively. Each month, I faced budget shortages, and while I tried several financial management apps, none of them fully matched my requirements.',
+    desc2:'This challenge inspired me to start building my own finance management application. My goal is to not just solve my own problem but also address the gaps I noticed in existing solutions',
+        role:'Full Stack Engineer',
+        collab:["Ayesha Rasanjalee","Kiyara Amarathunga","Movindu Amarasingha","Ashfa Ali"],
+         github:'https://github.com/NalakaDineshSamarasingha/SpendWise-frontend',
+        downlod:'https://github.com/NalakaDineshSamarasingha/SpendWise-frontend/releases/tag/v1.0.1',
+         context:['I started this project after facing recurring budget shortages for nearly two years. Despite trying several financial management apps, none aligned with my real needs — especially around collaboration and debt tracking. This gap inspired me to design and develop my own solution that not only manages personal finance but also enables shared financial management.','The app focuses on unique features such as collaboration, where two or more people can manage a single account, and debt management, giving clear visibility into both what I owe and what others owe me. It also includes trip planning, allowing groups to budget and split expenses efficiently, and saving goals with progress tracking. Alongside these, the app covers all the essential features like income and expense tracking, categorization, reminders, and reporting.','During development, I explored challenges like ensuring real-time synchronization between multiple users, maintaining simplicity while handling complex cases, and implementing secure data sharing. Through prototyping, I refined debt ledger models, collaborative flows, and savings visualization. The result is an app tailored not just for individual finance but also for group-oriented financial scenarios, bridging a gap I found in existing solutions.']
   },
   {
     slug: 'Goviya',
@@ -53,6 +85,13 @@ export const projects = [
     tags: ['Systems', 'Brand'],
       media: '/Assets/goviya.png',
     color: '#d52d3a',
-    aspect: 'aspect-[4/3]'
+    aspect: 'aspect-[4/3]',
+     desc:'For the past two years, I’ve struggled with managing my personal finances effectively. Each month, I faced budget shortages, and while I tried several financial management apps, none of them fully matched my requirements.',
+    desc2:'This challenge inspired me to start building my own finance management application. My goal is to not just solve my own problem but also address the gaps I noticed in existing solutions',
+        role:'Full Stack Engineer',
+        collab:[""],
+         github:'https://github.com/NalakaDineshSamarasingha/SpendWise-frontend',
+        downlod:'https://github.com/NalakaDineshSamarasingha/SpendWise-frontend/releases/tag/v1.0.1',
+        context:['I started this project after facing recurring budget shortages for nearly two years. Despite trying several financial management apps, none aligned with my real needs — especially around collaboration and debt tracking. This gap inspired me to design and develop my own solution that not only manages personal finance but also enables shared financial management.','The app focuses on unique features such as collaboration, where two or more people can manage a single account, and debt management, giving clear visibility into both what I owe and what others owe me. It also includes trip planning, allowing groups to budget and split expenses efficiently, and saving goals with progress tracking. Alongside these, the app covers all the essential features like income and expense tracking, categorization, reminders, and reporting.','During development, I explored challenges like ensuring real-time synchronization between multiple users, maintaining simplicity while handling complex cases, and implementing secure data sharing. Through prototyping, I refined debt ledger models, collaborative flows, and savings visualization. The result is an app tailored not just for individual finance but also for group-oriented financial scenarios, bridging a gap I found in existing solutions.']
   }
 ];
