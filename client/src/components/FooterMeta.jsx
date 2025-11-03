@@ -13,9 +13,7 @@ export default function FooterMeta() {
   const socials = [
     { label: 'Reading', href: 'https://medium.com/@nalakadinesh97' },
     { label: 'Code', href: 'https://github.com/NalakaDineshSamarasingha' },
-    { label: 'Linkedin', href: 'https://www.linkedin.com/in/nalaka-dinesh-b53173271/' },
-    // { label: 'Instagram', href: 'https://www.instagram.com' },
-    // { label: 'Twitter', href: 'https://x.com' }
+    { label: 'Linkedin', href: 'https://www.linkedin.com/in/nalaka-dinesh-b53173271/' }
   ];
 
   const metaTokens = [
@@ -73,7 +71,7 @@ export default function FooterMeta() {
               className="text-[8px] md:text-[10px] font-medium text-amber-300 hover:text-amber-200 transition-colors break-all"
             >
               nalakadinesh97@gmail.com
-              <sup className="ml-1 text-[10px] text-amber-300 font-mono">6</sup>
+              <sup className="ml-1 text-[10px] text-amber-300 font-mono">4</sup>
             </a>
           </div>
         </div>

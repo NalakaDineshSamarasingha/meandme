@@ -29,7 +29,7 @@ export default function ProfileExperience() {
             I design & engineer interfaces—focused on clarity, rhythm & performance across ambiguous product surfaces. Exploring AI assisted workflows & multimodal semantics. If you’re iterating on something ambitious,
             {" "}
             <a
-              href="mailto:you@example.com"
+              href="mailto:nalakadineshx@gmail.com"
               className="underline decoration-dotted underline-offset-4 text-amber-300 hover:text-amber-200"
             >
               get in touch

@@ -16,7 +16,14 @@ export default function Navbar() {
             </div>
           {/* Right: Location (mobile inline below) */}
           <div className="flex items-center">
-            <span className="text-[12px] md:text-[13px] font-medium text-zinc-300 tracking-tight whitespace-nowrap">Resume</span>
+            <a 
+              href="/Nalaka_Dinesh_Intern.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-[12px] md:text-[13px] font-medium text-zinc-300 tracking-tight whitespace-nowrap hover:text-white transition-colors"
+            >
+              Resume
+            </a>
           </div>
         </div>
         <div className="h-px w-full bg-zinc-800" />
