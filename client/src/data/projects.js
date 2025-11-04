@@ -3,27 +3,33 @@ export const projects = [
   {
     slug: "Ballerina",
     title: "Ballerina Firestore",
-    client: "Ballerina Firestore",
+    client: "nalaka/firestore",
     category: "Ballerina connector",
     year: "2025",
     summary:
-      "Community & media surface experiments. Brand / interaction + internal creator tooling.",
-    tags: ["Media", "Community"],
+      "A Ballerina connector for Google Cloud Firestore with complete CRUD, advanced querying, batch operations and automatic authentication.",
+    tags: ["Ballerina", "Firestore", "Connector", "Database"],
     media: "/Assets/3.jpg",
     aspect: "aspect-[16/7]",
-    locked: true,
-    desc: "For the past two years, I’ve struggled with managing my personal finances effectively. Each month, I faced budget shortages, and while I tried several financial management apps, none of them fully matched my requirements.",
+    desc:
+      "A Ballerina connector for Google Cloud Firestore with complete CRUD operations, advanced querying, automatic token management, and type-safe conversions between Ballerina and Firestore types.",
     desc2:
-      "This challenge inspired me to start building my own finance management application. My goal is to not just solve my own problem but also address the gaps I noticed in existing solutions",
-    role: "Full Stack Engineer",
-    collab: [""],
-    github: "https://github.com/NalakaDineshSamarasingha/SpendWise-frontend",
-    downlod:
-      "https://github.com/NalakaDineshSamarasingha/SpendWise-frontend/releases/tag/v1.0.1",
+      "Production-ready connector exposing create/read/update/delete, advanced filters, batch operations and pagination. Includes comprehensive error handling and token caching for smooth authentication.",
+    role: "Author / Maintainer",
+    collab: [],
+    github: "",
+    downlod: "",
+    feature_video: [],
+    technology: [
+      "Ballerina",
+    ],
     context: [
-      "I started this project after facing recurring budget shortages for nearly two years. Despite trying several financial management apps, none aligned with my real needs — especially around collaboration and debt tracking.",
-      "The app focuses on unique features such as collaboration, where two or more people can manage a single account, and debt management, giving clear visibility into both what I owe and what others owe me. It also includes trip planning, allowing groups to budget and split expenses efficiently, and saving goals with progress tracking. Alongside these, the app covers all the essential features like income and expense tracking, categorization, reminders, and reporting.",
-      "During development, I explored challenges like ensuring real-time synchronization between multiple users, maintaining simplicity while handling complex cases, and implementing secure data sharing. Through prototyping, I refined debt ledger models, collaborative flows, and savings visualization. The result is an app tailored not just for individual finance but also for group-oriented financial scenarios, bridging a gap I found in existing solutions.",
+      "Overview: Complete CRUD operations (create, read, update, delete) with support for auto-generated and custom IDs.",
+      "Advanced Querying: filters, sorting, pagination and operators (>, >=, <, <=, !=, ==, in, not-in, array-contains).",
+      "Batch Operations: execute up to 500 operations per batch for efficient bulk changes.",
+      "Auto Authentication: automatic token management and renewal using service account credentials.",
+      "Type Safety: automatic conversion between Ballerina types and Firestore representations (strings, numbers, booleans, arrays, nested objects, null).",
+      "Production Ready: comprehensive error handling and a test suite (43 passing tests)."
     ],
   },
   {
@@ -33,37 +39,43 @@ export const projects = [
     category: "financial management app",
     year: "Present",
     summary:
-      "Lightweight dashboard & asset workflow primitives enabling faster content pipeline iteration.",
-    tags: ["Tooling", "Dashboard"],
+      "Expense tracking, collaborative budgeting and simple saving goals — lightweight mobile-first finance for pairs and small groups.",
+    tags: ["Finance", "Mobile", "Collaboration"],
     media: "/Assets/spendwise.png",
-    aspect: "aspect-[4/3]",
-    desc: "For the past two years, I’ve struggled with managing my personal finances effectively. Each month, I faced budget shortages, and while I tried several financial management apps, none of them fully matched my requirements.",
+    aspect: "aspect-[16/9]",
+    desc:
+      "SpendWise is an expense tracking app designed to make money management simple. Track your expenses, set budgets, collaborate with a partner, and plan savings or events – all in one place.",
     desc2:
-      "This challenge inspired me to start building my own finance management application. My goal is to not just solve my own problem but also address the gaps I noticed in existing solutions",
+      "Built as a mobile-first experience (React Native / Expo), SpendWise focuses on easy transaction entry, shared accounts for pairs, budgeting, and lightweight trip/event planning. The initial release focuses on core flows; collaboration and debt visibility are first-class features.",
     role: "Full Stack Engineer",
-    collab: ["Muditha Lakmali"],
+    collab: ["Muditha Lakmali"] ,
     technology: [
-      "React Native",
-      "NodeJs",
-      "ExpressJs",
-      "MongoDB",
-      "Google O Auth",
-      "Render.com",
+      "React Native / Expo (TypeScript)",
+      "Node.js",
+      "Express",
+      "MongoDB (Mongoose)",
+      "Google OAuth",
+      "JWT"
     ],
     github: "https://github.com/NalakaDineshSamarasingha/SpendWise-frontend",
     downlod:
       "https://github.com/NalakaDineshSamarasingha/SpendWise-frontend/releases/tag/v1.0.1",
     feature_video: [
       {
-        src: "/Assets/spendwise_das.mp4",
+        src: "/Assets/spendwise/Home.mp4",
         title: "Smart Dashboard",
         description: "Dashboard overview with real-time expense tracking",
       },
+      {
+        src: "/Assets/spendwise/Budget.mp4",
+        title: "Budgeting Feature",
+        description: "Easily create and manage budgets to track your spending habits",
+      }
     ],
     context: [
-      "I started this project after facing recurring budget shortages for nearly two years. Despite trying several financial management apps, none aligned with my real needs — especially around collaboration and debt tracking.",
-      "The app focuses on unique features such as collaboration, where two or more people can manage a single account, and debt management, giving clear visibility into both what I owe and what others owe me. It also includes trip planning, allowing groups to budget and split expenses efficiently, and saving goals with progress tracking.",
-      "During development, I explored challenges like ensuring real-time synchronization between multiple users, maintaining simplicity while handling complex cases, and implementing secure data sharing. Through prototyping, I refined debt ledger models, collaborative flows, and savings visualization.",
+      "Key flows: Google Login, add & track transactions, spending insights, budget creation, and pair collaboration for shared accounts.",
+      "Feature status: Google Login , Add & Track Transactions , Spending Insights , Budget Creation , Collaborate with One User.",
+      "Tech: frontend in React Native / Expo (TypeScript), backend Node.js + Express, MongoDB with Mongoose, deployed to Render. Authentication via Google OAuth with JWT-based sessions.",
     ],
   },
   {
@@ -71,24 +83,30 @@ export const projects = [
     title: "KimbulaGO",
     client: "KimbulaGO",
     category: "Tool for Bakery",
-    year: "2025",
+    year: "ongoing",
     summary:
-      "Explorations in natural language + visual grounding flows for rapid information recall.",
-    tags: ["AI", "Search"],
+      "Designed and developed a mobile application to digitize Sri Lanka’s Chun Pan (mobile bakery) culture — ongoing (not yet fully developed).",
+    tags: ["Mobile", "Maps", "Payments"],
     media: "/Assets/kimbula.mp4",
     aspect: "aspect-[3/4]",
-    desc: "For the past two years, I’ve struggled with managing my personal finances effectively. Each month, I faced budget shortages, and while I tried several financial management apps, none of them fully matched my requirements.",
+    desc:
+      "A mobile app to digitize Sri Lanka’s Chun Pan (mobile bakery) culture. Customers can track nearby Chun Pan vehicles in real-time, mark their needs on a map, and make cashless payments. The driver app provides demand heatmaps and order insights to optimise routes and improve timeliness.",
     desc2:
-      "This challenge inspired me to start building my own finance management application. My goal is to not just solve my own problem but also address the gaps I noticed in existing solutions",
-    role: "Full Stack Engineer",
+      "Status: ongoing — core ideas and UI/UX flows are designed but the full implementation is not complete. No further technical details available at this time.",
+    role: "Engineer",
     collab: [""],
-    github: "https://github.com/NalakaDineshSamarasingha/SpendWise-frontend",
-    downlod:
-      "https://github.com/NalakaDineshSamarasingha/SpendWise-frontend/releases/tag/v1.0.1",
+    github: "/",
+    downlod: "/",
     context: [
-      "I started this project after facing recurring budget shortages for nearly two years. Despite trying several financial management apps, none aligned with my real needs — especially around collaboration and debt tracking. This gap inspired me to design and develop my own solution that not only manages personal finance but also enables shared financial management.",
-      "The app focuses on unique features such as collaboration, where two or more people can manage a single account, and debt management, giving clear visibility into both what I owe and what others owe me. It also includes trip planning, allowing groups to budget and split expenses efficiently, and saving goals with progress tracking. Alongside these, the app covers all the essential features like income and expense tracking, categorization, reminders, and reporting.",
-      "During development, I explored challenges like ensuring real-time synchronization between multiple users, maintaining simplicity while handling complex cases, and implementing secure data sharing. Through prototyping, I refined debt ledger models, collaborative flows, and savings visualization. The result is an app tailored not just for individual finance but also for group-oriented financial scenarios, bridging a gap I found in existing solutions.",
+      "Customer features: real-time vehicle tracking, map-based requests, cashless payments via PayHere.",
+      "Driver features: demand heatmaps, order insights and route optimisation to improve delivery timeliness.",
+      "Status: ongoing — project design and architecture defined; development not yet completed.",
+    ],
+    technology: [
+      "React Native",
+      "Spring Boot",
+      "Google Maps APIs",
+      "PayHere (payments)"
     ],
   },
   {
@@ -157,26 +175,104 @@ export const projects = [
     slug: "Goviya",
     title: "Goviya",
     client: "goviya",
-    category: "bidding platform for farmers",
-    year: "2024",
+    category: "Farm-to-market trading platform",
+    year: "2025",
     summary:
-      "Scaled community product surfaces & internal design system rollouts.",
-    tags: ["Systems", "Brand"],
+      "Goviya — Farm-to-Market Trading Platform (University of Moratuwa, IS 3920 Individual Project, 2025). Mobile solution connecting farmers and merchants to ensure fair pricing, secure payments and transparent trade.",
+    tags: ["Marketplace", "Mobile", "Agri"],
     media: "/Assets/goviya.png",
     color: "#d52d3a",
     aspect: "aspect-[4/3]",
-    desc: "For the past two years, I’ve struggled with managing my personal finances effectively. Each month, I faced budget shortages, and while I tried several financial management apps, none of them fully matched my requirements.",
+    desc:
+      "A mobile-based solution that directly connects farmers and merchants, eliminating middlemen to ensure fair pricing, secure payments, and transparent trade.",
     desc2:
-      "This challenge inspired me to start building my own finance management application. My goal is to not just solve my own problem but also address the gaps I noticed in existing solutions",
-    role: "Full Stack Engineer",
-    collab: [""],
-    github: "https://github.com/NalakaDineshSamarasingha/SpendWise-frontend",
-    downlod:
-      "https://github.com/NalakaDineshSamarasingha/SpendWise-frontend/releases/tag/v1.0.1",
+      "University of Moratuwa — IS 3920 Individual Project (2025). The app supports farmer registration, bidding and order processing, secure payments, calling/chat, ratings, and an admin dashboard for market insights.",
+    role: " Engineer",
+    collab: [],
+    github: "",
+    downlod: "",
+    feature_video: [],
     context: [
-      "I started this project after facing recurring budget shortages for nearly two years. Despite trying several financial management apps, none aligned with my real needs — especially around collaboration and debt tracking. This gap inspired me to design and develop my own solution that not only manages personal finance but also enables shared financial management.",
-      "The app focuses on unique features such as collaboration, where two or more people can manage a single account, and debt management, giving clear visibility into both what I owe and what others owe me. It also includes trip planning, allowing groups to budget and split expenses efficiently, and saving goals with progress tracking. Alongside these, the app covers all the essential features like income and expense tracking, categorization, reminders, and reporting.",
-      "During development, I explored challenges like ensuring real-time synchronization between multiple users, maintaining simplicity while handling complex cases, and implementing secure data sharing. Through prototyping, I refined debt ledger models, collaborative flows, and savings visualization. The result is an app tailored not just for individual finance but also for group-oriented financial scenarios, bridging a gap I found in existing solutions.",
+      "Farmer Registration: farmers create profiles and list harvests with details, images, and minimum prices.",
+      "Bidding & Order Processing: merchants place bids on listed harvests or post demands for farmers to bid on.",
+      "Payment Processing: secure payments via PayHere API and manual payment slip uploads.",
+      "Calling & Chat: in-app messaging and calling for negotiations and coordination.",
+      "Rating & Reviews: users rate each other on reliability, quality and service.",
+      "Admin Dashboard: manage disputes, monitor market data and generate seasonal insights.",
+      "Benefits: fair pricing for farmers, reliable sourcing for merchants, transparent & efficient supply chain, real-time market insights."
     ],
+    technology: [
+      "React Native",
+      "FastAPI",
+      "MongoDB",
+      "PayHere API",
+      "Google Maps API"
+    ],
+  },
+  {
+    slug: "fitsixes",
+    title: "Fit Sixes",
+    client: "Fit Sixes",
+    category: "Event website",
+    year: "2025",
+    summary:
+      "Official website for the University of Moratuwa's largest annual sports event — handles team registration and organizer workflows.",
+    tags: ["Events", "Sports", "Registration"],
+    media: "/Assets/fitsixes/Main.png",
+    aspect: "aspect-[16/9]",
+    color: "#0b74de",
+    desc:
+      "Contributed to the development of the official Fit Sixes event website (fitsixes.com) which handled the full team registration process for participants and organizers.",
+    desc2:
+      "Implemented robust team registration flows, file uploads and automated document generation for streamlined event administration. Built admin features for verification, approvals and real-time monitoring of registrations.",
+    role: "Full Stack Engineer",
+    collab: ["Dhanajaya", "Sulakshi", "Garuka"],
+    github: "",
+    downlod: "https://www.fitsixes.com/",
+    feature_video: [],
+    context: [
+      "Team registration: implemented team sign-up with server-side and client-side validation to ensure data integrity.",
+      "Document uploads: secure handling and verification of required team files.",
+      "Automated PDFs: generation of invoices and team cards to streamline event documentation and check-in.",
+      "Admin panel: features for reviewing/verifying teams, approving documents, and monitoring registration progress in real time.",
+    ],
+    technology: [
+      "NextJs",
+      "Firebase",
+      "Supabase"
+    ],
+    url: "https://www.fitsixes.com/"
+  },
+  {
+    slug: "kairo-holdings",
+    title: "Kairo Holdings Website",
+    client: "Kairo Holdings",
+    category: "Company website",
+    year: "2025",
+    summary:
+      "Freelance website for Kairo Holdings showcasing workforce solutions, ethical staffing and company profile — live.",
+    tags: ["Corporate", "Website", "NextJs"],
+    media: "/Assets/kairo/Main.png",
+    aspect: "aspect-[16/9]",
+    color: "#0f172a",
+    desc:
+      "Designed and developed a responsive company website for Kairo Holdings to highlight their business profile, workforce solutions and ethical staffing services. Focused on clear structure, dark-themed aesthetics and brand consistency.",
+    desc2:
+      "Contribution: implemented Home, About Us and Contact Us pages, handled team registration/lead capture flows, and deployed the site on Vercel with a custom domain configured via Spaceship. The site is optimised for performance and accessibility.",
+    role: "Full Stack Engineer",
+    collab: ["Muditha Lakmali"],
+    github: "",
+    downlod: "https://kairoholdings.com/",
+    feature_video: [],
+    context: [
+      "Implemented Home, About Us and Contact Us pages with strong brand consistency and dark-themed aesthetics.",
+      "Handled responsive layouts, accessibility improvements and performance optimizations.",
+      "Deployment: deployed on Vercel with a custom domain configured via Spaceship.",
+      "Focus: clear information architecture to improve trust and visibility for business users."
+    ],
+    technology: [
+      "NextJs",
+      "Vercel"
+    ]
   },
 ];
