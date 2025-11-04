@@ -78,37 +78,7 @@ export const projects = [
       "Tech: frontend in React Native / Expo (TypeScript), backend Node.js + Express, MongoDB with Mongoose, deployed to Render. Authentication via Google OAuth with JWT-based sessions.",
     ],
   },
-  {
-    slug: "KimbulaGO",
-    title: "KimbulaGO",
-    client: "KimbulaGO",
-    category: "Tool for Bakery",
-    year: "ongoing",
-    summary:
-      "Designed and developed a mobile application to digitize Sri Lanka’s Chun Pan (mobile bakery) culture — ongoing (not yet fully developed).",
-    tags: ["Mobile", "Maps", "Payments"],
-    media: "/Assets/kimbula.mp4",
-    aspect: "aspect-[3/4]",
-    desc:
-      "A mobile app to digitize Sri Lanka’s Chun Pan (mobile bakery) culture. Customers can track nearby Chun Pan vehicles in real-time, mark their needs on a map, and make cashless payments. The driver app provides demand heatmaps and order insights to optimise routes and improve timeliness.",
-    desc2:
-      "Status: ongoing — core ideas and UI/UX flows are designed but the full implementation is not complete. No further technical details available at this time.",
-    role: "Engineer",
-    collab: [""],
-    github: "/",
-    downlod: "/",
-    context: [
-      "Customer features: real-time vehicle tracking, map-based requests, cashless payments via PayHere.",
-      "Driver features: demand heatmaps, order insights and route optimisation to improve delivery timeliness.",
-      "Status: ongoing — project design and architecture defined; development not yet completed.",
-    ],
-    technology: [
-      "React Native",
-      "Spring Boot",
-      "Google Maps APIs",
-      "PayHere (payments)"
-    ],
-  },
+ 
   {
     slug: "Carpool",
     title: "Carpool",
@@ -169,6 +139,37 @@ export const projects = [
       "Firebase",
       "Google Map",
       "Choreo",
+    ],
+  },
+   {
+    slug: "KimbulaGO",
+    title: "KimbulaGO",
+    client: "KimbulaGO",
+    category: "Tool for Bakery",
+    year: "ongoing",
+    summary:
+      "Designed and developed a mobile application to digitize Sri Lanka’s Chun Pan (mobile bakery) culture — ongoing (not yet fully developed).",
+    tags: ["Mobile", "Maps", "Payments"],
+    media: "/Assets/kimbula.mp4",
+    aspect: "aspect-[3/4]",
+    desc:
+      "A mobile app to digitize Sri Lanka’s Chun Pan (mobile bakery) culture. Customers can track nearby Chun Pan vehicles in real-time, mark their needs on a map, and make cashless payments. The driver app provides demand heatmaps and order insights to optimise routes and improve timeliness.",
+    desc2:
+      "Status: ongoing — core ideas and UI/UX flows are designed but the full implementation is not complete. No further technical details available at this time.",
+    role: "Engineer",
+    collab: [""],
+    github: "/",
+    downlod: "/",
+    context: [
+      "Customer features: real-time vehicle tracking, map-based requests, cashless payments via PayHere.",
+      "Driver features: demand heatmaps, order insights and route optimisation to improve delivery timeliness.",
+      "Status: ongoing — project design and architecture defined; development not yet completed.",
+    ],
+    technology: [
+      "React Native",
+      "Spring Boot",
+      "Google Maps APIs",
+      "PayHere (payments)"
     ],
   },
   {
@@ -272,6 +273,38 @@ export const projects = [
     ],
     technology: [
       "NextJs",
+      "Vercel"
+    ]
+  },
+  {
+    slug: "portfolio-v3",
+    title: "Portfolio 2025 (v3) — Simple & Clear",
+    client: "Personal Portfolio",
+    category: "Portfolio",
+    year: "2025",
+    summary:
+      "From “Stylish & Handy” to “Simple & Clear” — the 2025 edition (v3) of my portfolio focused on minimalism, clarity and content-first presentation.",
+    tags: ["Portfolio", "Personal", "Web"],
+    media: "/Assets/portfolio/portfolio.mp4",
+    aspect: "aspect-[16/9]",
+    color: "#0b0b0b",
+    desc:
+      "Every version of my portfolio has told a different story. The 2025 Edition (v3) is all about simplicity and focus — no fancy effects, just my work and projects presented as clearly as possible.",
+    desc2:
+      "Sometimes growth isn’t about adding more — it’s about knowing what to remove. This version reflects that mindset: clean layout, deliberate spacing, and content-first decisions.",
+    role: "Designer / Engineer",
+    collab: [],
+    github: "",
+    downlod: "",
+    feature_video: [],
+    context: [
+      "Design goal: minimalism and clarity — remove decorative elements and focus on content.",
+      "Approach: concise typography, clean layout, deliberate spacing, and fast performance.",
+      "Outcome: a lightweight, accessible portfolio that highlights projects without distraction."
+    ],
+    technology: [
+      "React",
+      "Tailwind CSS",
       "Vercel"
     ]
   },
