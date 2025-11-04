@@ -17,8 +17,8 @@ export const projects = [
       "Production-ready connector exposing create/read/update/delete, advanced filters, batch operations and pagination. Includes comprehensive error handling and token caching for smooth authentication.",
     role: "Author / Maintainer",
     collab: [],
-    github: "",
-    downlod: "",
+    github: "https://central.ballerina.io/nalaka/firestore/1.1.0",
+    downlod: "https://central.ballerina.io/nalaka/firestore/1.1.0",
     feature_video: [],
     technology: [
       "Ballerina",
@@ -189,8 +189,8 @@ export const projects = [
       "University of Moratuwa — IS 3920 Individual Project (2025). The app supports farmer registration, bidding and order processing, secure payments, calling/chat, ratings, and an admin dashboard for market insights.",
     role: " Engineer",
     collab: [],
-    github: "",
-    downlod: "",
+    github: "/",
+    downlod: "/",
     feature_video: [],
     context: [
       "Farmer Registration: farmers create profiles and list harvests with details, images, and minimum prices.",
@@ -227,7 +227,7 @@ export const projects = [
       "Implemented robust team registration flows, file uploads and automated document generation for streamlined event administration. Built admin features for verification, approvals and real-time monitoring of registrations.",
     role: "Full Stack Engineer",
     collab: ["Dhanajaya", "Sulakshi", "Garuka"],
-    github: "",
+    github: "/",
     downlod: "https://www.fitsixes.com/",
     feature_video: [],
     context: [
@@ -261,7 +261,7 @@ export const projects = [
       "Contribution: implemented Home, About Us and Contact Us pages, handled team registration/lead capture flows, and deployed the site on Vercel with a custom domain configured via Spaceship. The site is optimised for performance and accessibility.",
     role: "Full Stack Engineer",
     collab: ["Muditha Lakmali"],
-    github: "",
+    github: "/",
     downlod: "https://kairoholdings.com/",
     feature_video: [],
     context: [
