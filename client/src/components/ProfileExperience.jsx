@@ -16,7 +16,7 @@ export default function ProfileExperience() {
         </div>
         <div className="hidden md:grid md:grid-cols-[2fr_4fr]">
           <h3 className="text-[11px] tracking-[0.05em] font-semibold uppercase text-[#52525b]">
-            Project
+            Experience
           </h3>
           <h3 className="text-[11px] tracking-[0.05em] font-semibold uppercase text-[#52525b]">
             Description
@@ -48,6 +48,9 @@ export default function ProfileExperience() {
               {/* Project */}
               <div className="mb-3 md:mb-0">
                 <p className="font-medium text-zinc-100 tracking-tight text-[15px] md:text-[15px]">
+                  {exp.role}
+                </p>
+                <p className="text-zinc-500 text-[11px] md:text-xs mt-1 md:mt-2 tracking-wide uppercase">
                   {exp.company}
                 </p>
                 <p className="text-zinc-500 text-[11px] md:text-xs mt-1 md:mt-2 tracking-wide uppercase">
